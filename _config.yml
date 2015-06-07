@@ -1,46 +1,69 @@
-# your informations
-author:
-  name: Bernardo Pacheco
-  description: Software engineer
-  picture: /assets/images/avatar.jpg
+title:            Site Title
+description:      Describe your website here.
+disqus_shortname: hpstrtheme
+reading_time:     true
+words_per_minute: 200
+# Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
+# When testing locally leave blank or use http://localhost:4000
+url:
 
-# site description
-description: Thoughts and writings about software engineering by Bernardo Pacheco.
+# Owner/author information
+owner:
+  name:           Your Name
+  avatar:         avatar.jpg
+  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
+  email:          you@email.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        
+  facebook:       
+  github:         
+  stackexchange:  
+  linkedin:       
+  instagram:      
+  flickr:         
+  tumblr:         
+  # google plus id, include the '+', eg +mmistakes
+  google_plus:    +yourid
 
-# site url
-url: http://bernardopacheco.net
+# Background image to be tiled on all pages
+background: 
 
-# site title
-title: Bernardo Pacheco
+# Analytics and webmaster tools stuff goes here
+google_analytics:   
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:         
 
-# site version
-version: 1.0.0
-
-# number of posts per page
-paginate: 10
-
-# your github username
-github_username: bernardopacheco
-
-# set true to include or false to exclude share option
-share:
-  twitter: true
-  facebook: true
-  google_plus: true
-  linkedin: true
-  disqus: true
-
-# if share.facebook is true, provide your facebook app id
-facebook_app_id: 730635297031262
-
-# if share.disqus is true, provide your disqus shortname, the api key and the number of comments to display
-disqus_username: bernardopacheco
-disqus_api_key: o2szu05bLNqiXiRvqe2oFvIHYYVR24eVkQiGs5WHcj0VUnvF8GCqD9HQUZErwCe7
-disqus_recent_comments_to_display: 5
-
-# google analytics ID
-google_analytics_id: UA-58186085-1
-
-markdown: kramdown
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    America/New_York
+future:      true
 highlighter: pygments
-exclude: [ 'README.md', 'src/', 'node_modules', 'bower_components', 'package.json', 'bower.json', 'Gruntfile.js' ]
+markdown:    kramdown
+gems:
+  - jekyll-sitemap
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title/
+
+# Amount of post to show on home page
+paginate: 5
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: true
+
+  coderay:
+    coderay_line_numbers: nil
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
