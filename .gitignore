@@ -1,0 +1,10 @@
+# Idea
+.idea/
+*.iml
+
+#Jekyll
+.sass-cache/
+_site/
+
+# Other
+.DS_Store

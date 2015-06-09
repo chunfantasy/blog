@@ -1,4 +1,4 @@
-title:            Chun's Blog
+title:            CHUN'S BLOG
 description:      Describe your website here.
 disqus_shortname: hpstrtheme
 reading_time:     true
@@ -9,14 +9,14 @@ url:
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           Chun Fan 范春
   avatar:         avatar.jpg
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
   email:          you@email.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
-  facebook:       
-  github:         
+  facebook:       chunfantasy
+  github:         chunfantasy
   stackexchange:  
   linkedin:       
   instagram:      
