@@ -4,7 +4,7 @@ title: Database Naming Conventions
 description: "This note is about the convention when design a database."
 modified: 2011-02-01
 tags: [Database]
-comments: false
+comments: true
 ---
 
 A naming convention is important when working with databases in order to provide a clear structure and format; especially in team environments. By using these conventions the database can be understood by anyone applying these conventions; thus increasing maintainability. These are not rules but guidelines that can be adapted to any working environment.

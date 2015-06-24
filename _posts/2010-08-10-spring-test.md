@@ -4,7 +4,7 @@ title: Spring TestContext Framework Configuration
 description: "This note is about the configuration of testing environment with Spring."
 modified: 2010-08-10
 tags: [Framework]
-comments: false
+comments: true
 ---
 
 This note is about the configuration of testing environment with Spring.
