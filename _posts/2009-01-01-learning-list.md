@@ -8,7 +8,10 @@ tags: []
 
 # Learning List
 
-JQueryEasyUI
-Jfreechart
-Hadoop
-Spark
+* JQueryEasyUI
+
+* Jfreechart
+
+* Hadoop
+
+* Spark
