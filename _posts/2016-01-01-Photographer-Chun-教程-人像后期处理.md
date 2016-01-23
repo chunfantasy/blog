@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Photographer Chun——教程——人像后期处理.md
+title: Photographer Chun——教程——人像后期处理
 description: "Photographer Chun——教程——人像后期处理"
-modified: 2015-11-01
+modified: 2016-01-01
 tags: [Photographer]
 comments: true
 image:
-  feature: 2015-11-01-我是歌手范春.jpg
+  feature: 2016-01-01-Photographer-Chun-PS.png
 ---
 
 # Photographer Chun——教程——人像后期处理
@@ -18,6 +18,14 @@ image:
 <a href="http://www.jiathis.com/share?uid=2074997"  class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
 <a class="jiathis_counter_style"></a></div>
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2074997" charset="utf-8"></script>
+<script>
+    var jiathis_config={
+        data_track_clickback:true,
+        summary:"好的人像离不开专业的后期处理",
+        shortUrl:false,
+        hideMore:false
+    }
+</script>
 
 ### &nbsp;
 
