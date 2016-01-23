@@ -6,7 +6,7 @@ modified: 2016-01-02
 tags: [Photographer]
 comments: true
 image:
-  feature: 2016-01-01-Photographer-Chun-Wuhan.png
+  feature: 2016-01-01-Photographer-Chun-Wuhan/DSC_1427.png
 ---
 
 # Photographer Chun——Wuhan
