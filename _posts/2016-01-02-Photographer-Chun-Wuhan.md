@@ -6,7 +6,7 @@ modified: 2016-01-02
 tags: [Photographer]
 comments: true
 image:
-  feature: ({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan/DSC_1427.jpg)
+  feature: ({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan.jpg)
 ---
 
 # Photographer Chun——Wuhan
@@ -28,6 +28,14 @@ image:
 
 ### &nbsp;
 
+![Smithsonian Image]({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan.jpg)
+
+### &nbsp;
+
 ![Smithsonian Image]({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan/DSC_1427.jpg)
+
+### &nbsp;
+
+![Smithsonian Image]({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan/DSC_1452.jpg)
 
 ### &nbsp;
