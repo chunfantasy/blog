@@ -6,7 +6,7 @@ modified: 2016-01-02
 tags: [Photographer]
 comments: true
 image:
-  feature: ({{ site.url }}/images/2016-01-02-Photographer-Chun-Wuhan.jpg)
+  feature: 2016-01-02-Photographer-Chun-Wuhan.jpg
 ---
 
 # Photographer Chun——Wuhan
