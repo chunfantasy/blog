@@ -9,7 +9,7 @@ image:
   feature: 2016-02-01-Photographer-Chun-Moholt-2016.jpg
 ---
 
-# Photographer Chun——Wuhan
+# Photographer Chun——Moholt 2016
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
@@ -28,37 +28,37 @@ image:
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg"> ![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg) 点击图片，全屏欣赏更美哦！</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg)</a>
 
