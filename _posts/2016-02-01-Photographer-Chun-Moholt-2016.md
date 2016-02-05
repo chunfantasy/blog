@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Photographer Chun——Moholt 2016
-description: "Photographer Chun——Moholt 2016"
+title: Photographer Chun Moholt 2016
+description: "Photographer Chun Moholt 2016"
 modified: 2016-02-01
 tags: [Photographer]
 comments: true
@@ -9,7 +9,7 @@ image:
   feature: 2016-02-01-Photographer-Chun-Moholt-2016.jpg
 ---
 
-# Photographer Chun——Moholt 2016
+# Photographer Chun Moholt 2016
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
@@ -26,9 +26,10 @@ image:
     }
 </script>
 
+
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2405.jpg)</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016.jpg)</a>
 
 ### &nbsp;
 
