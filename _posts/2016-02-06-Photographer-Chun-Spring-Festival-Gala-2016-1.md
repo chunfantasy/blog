@@ -192,12 +192,6 @@ More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
-![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-1/DSC_3142.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
-
-### &nbsp;
-
-<a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-1/DSC_3143.jpg)</a>
 More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
