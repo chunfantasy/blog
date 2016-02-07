@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Photographer Chun Spring Festival Gala 2016 Part 1
-description: "Photographer Chun Photographer Chun Spring Festival Gala 2016"
+description: "Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim"
 modified: 2016-02-06
 tags: [Photographer]
 comments: true
