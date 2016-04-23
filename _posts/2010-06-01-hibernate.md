@@ -3,7 +3,7 @@ layout: post
 title: Hibernate Note
 description: "This note is about the problems that I met while using Hibernate."
 modified: 2013-04-01
-tags: [Framework, Database]
+tags: [Framework]
 comments: true
 image:
   feature: 2010-06-01-hibernate.png
