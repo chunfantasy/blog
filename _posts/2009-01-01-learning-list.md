@@ -15,3 +15,5 @@ tags: [Others]
 * Hadoop
 
 * Spark
+
+* Typescript
