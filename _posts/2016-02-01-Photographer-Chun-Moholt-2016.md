@@ -6,7 +6,7 @@ modified: 2016-02-01
 tags: [Photographer]
 comments: true
 image:
-  feature: 2016-02-01-Photographer-Chun-Moholt-2016.jpg
+  feature: 2016-05-01-Photographer-Chun-Moholt-2016.jpg
 ---
 
 # Photographer Chun Moholt 2016
