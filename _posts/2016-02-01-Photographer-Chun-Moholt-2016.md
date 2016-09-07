@@ -29,37 +29,8 @@ image:
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016.jpg)</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016.jpg">![Moholt 2016]({{ site.url }}/images/2016-05-01-Photographer-Chun-Moholt-2016.jpg)</a>
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2386.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2388.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2389.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2395.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2398.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2401.jpg)</a>
-
-### &nbsp;
-
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2408.jpg)</a>
-
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_2383.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_5275.jpg)</a>
