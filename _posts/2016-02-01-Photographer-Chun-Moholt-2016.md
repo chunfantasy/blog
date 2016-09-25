@@ -41,7 +41,7 @@ image:
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_71431.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_7143.jpg)</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_7143.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_7143.jpg)</a>
 
 ### &nbsp;
 
