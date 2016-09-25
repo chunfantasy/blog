@@ -37,10 +37,6 @@ image:
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6183.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6183.jpg)</a>
-
-### &nbsp;
-
 <a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6202.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6202.jpg)</a>
 
 ### &nbsp;
@@ -54,3 +50,7 @@ image:
 ### &nbsp;
 
 <a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_76631.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_76631.jpg)</a>
+
+### &nbsp;
+
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6183.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_6183.jpg)</a>
