@@ -33,4 +33,4 @@ image:
 
 ### &nbsp;
 
-<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_8081.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_5275.jpg)</a>
+<a href="/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_8081.jpg">![Moholt 2016]({{ site.url }}/images/2016-02-01-Photographer-Chun-Moholt-2016/DSC_8081.jpg)</a>
