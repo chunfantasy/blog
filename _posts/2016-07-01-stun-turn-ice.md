@@ -29,3 +29,9 @@ $ sudo apt-get install coturn
 By default, turn server port is 3478 and stun server is 3479.
 
 https://www.webrtc-experiment.com/docs/TURN-server-installation-guide.html
+
+# Run
+
+{% highlight bash %}
+$ sudo turnserver
+{% endhighlight %}
