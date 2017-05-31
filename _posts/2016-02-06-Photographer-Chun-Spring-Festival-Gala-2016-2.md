@@ -30,190 +30,158 @@ image:
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3293.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2889.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3281.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2585.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2598.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2600.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2608.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2705.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2732.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2735.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2756.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2758.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2761.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2766.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2781.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2799.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2880.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2890.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2896.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2914.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_2918.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3249.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3257.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3263.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3275.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3282.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3285.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3287.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3292.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3296.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3300.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
 
 ### &nbsp;
 
 <a href="https://www.flickr.com/photos/chunfantasy/albums/72157663821367150" target="_blank">
 ![Photographer Chun Photographer Chun Spring Festival Gala 2016 hold by CSSA in Trondheim]({{ site.url }}/images/2016-02-06-Photographer-Chun-Spring-Festival-Gala-2/DSC_3303.jpg)</a>
-More photos are being uploaded on `http://blog.chun.no`. Origin pictures can be found by clicking on the photos later.
