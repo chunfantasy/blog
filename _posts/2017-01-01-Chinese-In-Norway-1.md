@@ -3,7 +3,7 @@ layout: post
 title: （Chinese）挪威探险记——机缘巧合
 description: ""
 modified: 2015-12-05
-tags: [我是歌手]
+tags: [挪威]
 comments: true
 image:
   feature: 2015-12-07-十年.jpg
