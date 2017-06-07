@@ -25,7 +25,7 @@ image:
 
 * 万能网站 Finn *<a href="http://www.finn.no" target="_blank">http://www.finn.no</a>*
 * 比价网站 Prisjakt *<a href="http://www.prisjakt.no" target="_blank">http://www.prisjakt.no</a>*
-* 瑞典采购班车 Prisjakt *<a href="https://tbuss.no/gratis-handletur-til-sverige" target="_blank">https://tbuss.no/gratis-handletur-til-sverige</a>*
+* 瑞典采购班车 *<a href="https://tbuss.no/gratis-handletur-til-sverige" target="_blank">https://tbuss.no/gratis-handletur-til-sverige</a>*
 
 
 
