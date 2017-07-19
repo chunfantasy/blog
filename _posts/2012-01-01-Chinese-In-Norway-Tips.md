@@ -1,7 +1,7 @@
 ---
 layout: post
 title: （Chinese）挪威实用网站大全
-description: ""
+description: "挪威实用网站大全,生活,学习,娱乐,网购"
 modified: 2017-07-01
 tags: [挪威]
 comments: true
@@ -36,3 +36,5 @@ image:
 * NTNU教学日历 *<a href="http://www.ntnu.edu/studies/academiccalendar" target="_blank">http://www.ntnu.edu/studies/academiccalendar</a>*
 * NTNU课表 *<a href="https://ntnu.1024.no" target="_blank">https://ntnu.1024.no</a>*
 * 购书 *<a href="https://www.adlibris.com/no" target="_blank">https://www.adlibris.com/no</a>*
+* 挪威语课程 *<a href="https://www.trondheim.kommune.no/content/1117725482/Norskkurs" target="_blank">https://www.trondheim.kommune.no/content/1117725482/Norskkurs</a>*
+* NTNU挪威语课程 *<a href="https://www.ntnu.no/norskkurs" target="_blank">https://www.ntnu.no/norskkurs</a>*
