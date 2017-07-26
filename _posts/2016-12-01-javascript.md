@@ -13,4 +13,4 @@ This note is about the JavaScript.
 
 # Check Type of Object
 
-You can use *typeof*
+You can use `typeof`
