@@ -31,31 +31,29 @@ image:
 + <a href="http://www.storm.no/nordlys/" target="_blank">极光预测</a>
 
 + 出行
-    - <a href="http://atb.no" target="_blank">Trondheim 公交</a>
+    - <a href="https://www.finn.no/reise/" target="_blank">Finn 出行</a>
+    - <a href="https://ruter.no/en/" target="_blank">Oslo 公交 Ruter#</a>
+    - <a href="http://atb.no" target="_blank">Trondheim 公交 AtB</a>
     - <a href="http://nsb.no" target="_blank">挪威火车</a>
     - <a href="http://norwegian.no" target="_blank">挪威航空</a>
     - <a href="http://sas.no" target="_blank">北欧航空</a>
-    - <a href="https://www.finn.no/reise/" target="_blank">Finn 机票酒店出行综合查询</a>
-    - <a href="http://momondo.no" target="_blank">Momondo 机票酒店出行综合查询</a>
+    - <a href="http://momondo.no" target="_blank">Momondo 综合查询</a>
 
-## 学习
-
-+ <a href="http://innsida.ntnu.no" target="_blank">NTNU 内网</a>
-+ <a href="https://software.ntnu.no" target="_blank">NTNU 正版软件</a>
-+ <a href="http://www.ntnu.edu/studies/academiccalendar" target="_blank">NTNU 教学日历</a>
-+ <a href="https://ntnu.1024.no" target="_blank">NTNU 自助课表</a>
-+ <a href="https://www.ntnu.no/norskkurs" target="_blank">NTNU 挪威语课程</a>
-+ <a href="https://www.trondheim.kommune.no/content/1117725482/Norskkurs" target="_blank">Trondheim 挪威语课程</a>
-+ <a href="https://www.adlibris.com/no/" target="_blank">购书</a>
++ 住房
+    - <a href="https://www.finn.no/realestate/browse.html" target="_blank">Finn 房屋</a>
+    - <a href="https://www.sio.no/en/" target="_blank">Oslo 学生住房</a>
+    - <a href="http://sit.no" target="_blank">Trondheim 学生住房</a>
+    - <a href="http://frost.no" target="_blank">Trondheim Voll</a>
 
 ## 网购
 
 + <a href="https://www.finn.no/bap/browse.html" target="_blank">Finn 二手市场</a>
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
++ <a href="http://www.clasohlson.com/no/" target="_blank">Clas Ohlson 日常用品</a>
 
 + 电子电器
     - <a href="http://komplett.no" target="_blank">Komplett</a>
-    - <a href="http://elkjop.no" target="_blank">ELkjøp</a>
+    - <a href="http://elkjop.no" target="_blank">Elkjøp</a>
     - <a href="http://expert.no" target="_blank">Expert</a>
     - <a href="http://lefdal.no" target="_blank">Lefdal</a>
     - <a href="http://mpx.no" target="_blank">MPX</a>
@@ -64,4 +62,15 @@ image:
     - <a href="https://www.zara.com/no/en/" target="_blank">Zara</a>
     - <a href="http://www.hm.com/no/" target="_blank">HM</a>
     - <a href="https://xxl.no" target="_blank">XXL</a>
-    - <a href="https://fjellsport.no" target="_blank">XXL</a>
+    - <a href="https://fjellsport.no" target="_blank">Fjellsport</a>
+    - <a href="https://sportamore.no" target="_blank">Sportamore</a>
+
+
+## 学习
++ <a href="http://innsida.ntnu.no" target="_blank">NTNU 内网</a>
++ <a href="https://software.ntnu.no" target="_blank">NTNU 正版软件</a>
++ <a href="http://www.ntnu.edu/studies/academiccalendar" target="_blank">NTNU 教学日历</a>
++ <a href="https://ntnu.1024.no" target="_blank">NTNU 自助课表</a>
++ <a href="https://www.ntnu.no/norskkurs" target="_blank">NTNU 挪威语课程</a>
++ <a href="https://www.trondheim.kommune.no/content/1117725482/Norskkurs" target="_blank">Trondheim 挪威语课程</a>
++ <a href="https://www.adlibris.com/no/" target="_blank">购书</a>
