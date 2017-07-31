@@ -247,11 +247,15 @@ All this is done for any sub-level being entered.
 	background: rgba(255,248,213,0.1);
 }
 
+.dl-ad {
+	max-width: 100px;
+	@media #{$medium} {
+		max-width: 200px;
+	}
+}
+
 /* No JS Fallback */
 .no-js {
-	.dl-trigger {
-		display: none;
-	}
 	.dl-menuwrapper {
 		position: initial;
 

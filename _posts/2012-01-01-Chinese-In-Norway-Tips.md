@@ -34,9 +34,10 @@ image:
     - <a href="https://www.finn.no/reise/" target="_blank">Finn 出行</a>
     - <a href="https://ruter.no/en/" target="_blank">Oslo 公交 Ruter#</a>
     - <a href="http://atb.no" target="_blank">Trondheim 公交 AtB</a>
-    - <a href="http://nsb.no" target="_blank">挪威火车</a>
-    - <a href="http://norwegian.no" target="_blank">挪威航空</a>
-    - <a href="http://sas.no" target="_blank">北欧航空</a>
+    - <a href="http://nsb.no" target="_blank">挪威火车 NSB</a>
+    - <a href="http://norwegian.no" target="_blank">挪威航空 Norwegian</a>
+    - <a href="http://sas.no" target="_blank">北欧航空 SAS</a>
+    - <a href="http://klm.no" target="_blank">荷兰皇家航空 KLM</a>
     - <a href="http://momondo.no" target="_blank">Momondo 综合查询</a>
 
 + 住房
