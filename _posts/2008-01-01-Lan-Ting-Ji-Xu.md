@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 兰亭集序
-description: "兰亭集序是一首很美的诗."
+description: "兰亭集序是一首很美的诗。"
 modified: 2008-01-01
 tags: [诗词]
 comments: true
