@@ -1,6 +1,6 @@
 ---
 layout: post
-title: （Chinese）挪威探险记——购房惊魂
+title: 挪威探险记——购房惊魂
 description: ""
 modified: 2017-07-01
 tags: [挪威]
@@ -9,7 +9,7 @@ image:
   feature: 2017-01-01-Chinese-In-Norway-Buy-Property.jpg
 ---
 
-# （Chinese）挪威探险记——购房惊魂
+# 挪威探险记——购房惊魂
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>

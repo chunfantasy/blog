@@ -1,7 +1,7 @@
 ---
 layout: post
-title: （Chinese）挪威探险记——机缘巧合
-description: ""
+title: 挪威探险记——机缘巧合命运
+description: "挪威探险记——机缘巧合命运"
 modified: 2015-12-05
 tags: [挪威]
 comments: true
@@ -9,7 +9,7 @@ image:
   feature: 2015-12-07-Shi-Nian.jpg
 ---
 
-# （Chinese）挪威探险记——机缘巧合命运
+# 挪威探险记——机缘巧合命运
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
