@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Photographer Chun Wuhan 2015
-description: "Photographer Chun Wuhan 2015"
+title: 我是摄影春——武汉2015
+description: "我是摄影春——武汉2015"
 modified: 2016-01-02
 tags: [Photographer]
 comments: true
@@ -9,7 +9,7 @@ image:
   feature: 2016-01-02-Photographer-Chun-Wuhan-2015.jpg
 ---
 
-# Photographer Chun Wuhan 2015
+# 我是摄影春——武汉2015
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>

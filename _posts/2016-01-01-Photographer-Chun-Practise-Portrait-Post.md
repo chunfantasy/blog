@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Photographer Chun——教程——人像后期处理
-description: "Photographer Chun——教程——人像后期处理"
+title: 我是摄影春——教程——人像后期处理
+description: "我是摄影春——教程——人像后期处理"
 modified: 2016-01-01
 tags: [Photographer]
 comments: true
@@ -9,7 +9,7 @@ image:
   feature: 2016-01-01-Photographer-Chun-PS.png
 ---
 
-# Photographer Chun——教程——人像后期处理
+# 我是摄影春——教程——人像后期处理
 
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>

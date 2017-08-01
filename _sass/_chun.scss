@@ -4,7 +4,14 @@
 
 .dl-ad {
 	max-width: 100px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
 	@media #{$medium} {
-		max-width: 200px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 1000;
 	}
 }
