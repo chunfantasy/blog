@@ -26,6 +26,11 @@ image:
 ## 生活
 
 + <a href="http://finn.no" target="_blank">Finn 万能网站</a>
++ <a href="http://yr.no" target="_blank">天气预报</a>
++ <a href="http://trondheimtorg.no" target="_blank">Trondheim Torg 购物中心</a>
++ <a href="http://citylade.no" target="_blank">Trondheim City Lade 购物中心</a>
++ <a href="http://citysyd.no" target="_blank">Trondheim City Syd 购物中心</a>
++ <a href="http://sirkusshopping.no" target="_blank">Trondheim Sirkus 购物中心</a>
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
 + <a href="https://tbuss.no/gratis-handletur-til-sverige/" target="_blank">Tbuss 瑞典采购班车</a>
 + <a href="http://www.storm.no/nordlys/" target="_blank">极光预测</a>
@@ -50,6 +55,7 @@ image:
 
 + <a href="https://www.finn.no/bap/browse.html" target="_blank">Finn 二手市场</a>
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
++ <a href="http://ikea.no" target="_blank">宜家</a>
 + <a href="http://www.clasohlson.com/no/" target="_blank">Clas Ohlson 日常用品</a>
 
 + 电子电器
@@ -61,6 +67,8 @@ image:
 
 + 衣服
     - <a href="https://www.zara.com/no/en/" target="_blank">Zara</a>
+    - <a href="https://www.veromoda.com/no/no/home" target="_blank">Vero Moda</a>
+    - <a href="https://www.only.com/no/no/home" target="_blank">ONLY</a>
     - <a href="http://www.hm.com/no/" target="_blank">HM</a>
     - <a href="https://xxl.no" target="_blank">XXL</a>
     - <a href="https://fjellsport.no" target="_blank">Fjellsport</a>
