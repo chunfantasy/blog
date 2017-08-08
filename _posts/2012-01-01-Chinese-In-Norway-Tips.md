@@ -76,6 +76,7 @@ image:
 
 
 ## 学习
+
 + <a href="http://innsida.ntnu.no" target="_blank">NTNU 内网</a>
 + <a href="https://software.ntnu.no" target="_blank">NTNU 正版软件</a>
 + <a href="http://www.ntnu.edu/studies/academiccalendar" target="_blank">NTNU 教学日历</a>
@@ -83,3 +84,16 @@ image:
 + <a href="https://www.ntnu.no/norskkurs" target="_blank">NTNU 挪威语课程</a>
 + <a href="https://www.trondheim.kommune.no/content/1117725482/Norskkurs" target="_blank">Trondheim 挪威语课程</a>
 + <a href="https://www.adlibris.com/no/" target="_blank">购书</a>
+
+## 找工作
+
++ <a href="https://www.finn.no/job/browse.html" target="_blank">Finn 工作信息</a>
++ <a href="https://tjenester.nav.no/stillinger/forside" target="_blank">Nav 工作信息</a>
++ <a href="https://www.jobbsafari.no/" target="_blank">Jobbsafari 工作信息</a>
++ <a href="http://www.jobber.no/" target="_blank">Jobber 工作信息</a>
++ <a href="http://www.dnjobb.no/" target="_blank">DNJobb 工作信息</a>
++ <a href="https://karrierestart.no/jobb" target="_blank">KarriererStart 工作信息</a>
++ <a href="https://www.academicwork.no/" target="_blank">AcademicWork 工作中介</a>
++ <a href="https://www.experis.no/karriere/" target="_blank">Experis 工作中介</a>
++ <a href="https://jobzone.no/Ledige-stillinger/" target="_blank">Jobzone 工作中介</a>
++ <a href="http://www.centric.eu/NO/Default" target="_blank">Centric 工作中介</a>
