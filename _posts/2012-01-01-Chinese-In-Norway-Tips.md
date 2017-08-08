@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 挪威实用网站大全
-description: "挪威实用网站大全，生活、学习、娱乐、网购，应有尽有。"
-modified: 2017-07-01
+description: "挪威实用网站大全，生活、学习、娱乐、网购、找工作，应有尽有。"
+modified: 2017-08-08
 tags: [挪威]
 comments: true
 image:
@@ -22,6 +22,8 @@ image:
 ### &nbsp;
 
 本文章随时保持更新，意见、建议、报错或者其他问题请发邮件至email@chun.no  ^_^
+
+---
 
 ## 生活
 
@@ -51,6 +53,8 @@ image:
     - <a href="http://sit.no" target="_blank">Trondheim 学生住房</a>
     - <a href="http://frost.no" target="_blank">Trondheim Voll</a>
 
+---
+
 ## 网购
 
 + <a href="https://www.finn.no/bap/browse.html" target="_blank">Finn 二手市场</a>
@@ -74,6 +78,7 @@ image:
     - <a href="https://fjellsport.no" target="_blank">Fjellsport</a>
     - <a href="https://sportamore.no" target="_blank">Sportamore</a>
 
+---
 
 ## 学习
 
@@ -84,6 +89,8 @@ image:
 + <a href="https://www.ntnu.no/norskkurs" target="_blank">NTNU 挪威语课程</a>
 + <a href="https://www.trondheim.kommune.no/content/1117725482/Norskkurs" target="_blank">Trondheim 挪威语课程</a>
 + <a href="https://www.adlibris.com/no/" target="_blank">购书</a>
+
+---
 
 ## 找工作
 
