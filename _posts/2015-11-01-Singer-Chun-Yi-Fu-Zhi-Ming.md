@@ -6,14 +6,14 @@ modified: 2015-11-01
 tags: [我是歌手]
 comments: true
 image:
-  feature: 2015-11-01-Singer-Chun.jpg 
+  feature: 2015-11-01-Singer-Chun.jpg
 ---
 
 # 我是歌手范春——以父之名
 
 <audio controls>
-  <source src="{{ site.url }}/songs/以父之名.ogg" ></source>
-  <source src="{{ site.url }}/songs/以父之名.mp3" ></source>
+  <source src="{{ site.url }}/songs/Yi_Fu_Zhi_Ming.ogg" ></source>
+  <source src="{{ site.url }}/songs/Yi_Fu_Zhi_Ming.mp3" ></source>
 </audio>
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>

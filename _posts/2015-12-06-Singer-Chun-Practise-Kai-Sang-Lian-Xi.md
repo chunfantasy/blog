@@ -12,7 +12,7 @@ image:
 # 我是歌手范春——教程——完整的开嗓练习
 
 <video controls width="100%">
-  <source src="{{ site.url }}/videos/完整的开嗓练习.mp4" ></source>
+  <source src="{{ site.url }}/videos/Kai_Sang_Lian_Xi.mp4" ></source>
 </video>
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
