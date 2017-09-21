@@ -12,8 +12,8 @@ image:
 # 我是歌手范春——十年
 
 <audio controls>
-  <source src="{{ site.url }}/songs/十年.ogg" ></source>
-  <source src="{{ site.url }}/songs/十年.mp3" ></source>
+  <source src="{{ site.url }}/songs/Shi_Nian.ogg" ></source>
+  <source src="{{ site.url }}/songs/Shi_Nian.mp3" ></source>
 </audio>
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
