@@ -140,12 +140,15 @@ Tomannsbolig，直译过来是两人住宅。这是一种怎样的房子呢，�
 
 * Sparebank1
 
-    
-    <a href="https://kart.finn.no/?tab=iad&ztr=1&searchKey=search_id_realestate_homes" target="_blank">Sparebank1 SMN 计算器</a>，
+    <a href="https://www.sparebank1.no/nb/bank/privat/kundeservice/verktoy/lanekalkulator.html" target="_blank">Sparebank1 SMN 房贷计算器</a>
 
 * DNB
+
+    <a href="https://www.dnb.no/privat/laan/kalkulator/boliglaan.html" target="_blank">DNB 房贷计算器</a>
+    
 * Nordea
 
+    <a href="https://www.nordea.no/privat/vare-produkter/lan-og-kreditt/boliglan/hvor-mye-kan-jeg-lane-til-bolig.html" target="_blank">Nordea 房贷计算器</a>
 
 ---
 
