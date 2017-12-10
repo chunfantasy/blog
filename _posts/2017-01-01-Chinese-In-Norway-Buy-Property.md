@@ -3,7 +3,7 @@ layout: post
 title: 挪威探险记——购房惊魂
 description: "2017年，是我来到挪威的第六个年头，这一年注定是个不平凡的一年。"
 modified: 2017-07-01
-tags: [挪威, 购房, 贷款, 类型, 竞价, 条件, 材料, 看房, 付款, 交房]
+tags: [挪威, 购房, 买房子, 贷款, 类型, 竞价, 条件, 材料, 看房, 付款, 交房]
 comments: true
 image:
   feature: 2017-01-01-Chinese-In-Norway-Buy-Property.jpg
