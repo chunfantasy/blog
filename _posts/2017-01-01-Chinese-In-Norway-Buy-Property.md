@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 挪威探险记——购房惊魂
-description: ""
+description: "2017年，是我来到挪威的第六个年头，这一年注定是个不平凡的一年。"
 modified: 2017-07-01
-tags: [挪威]
+tags: [挪威, 购房, 贷款, 类型, 竞价, 条件, 材料, 看房, 付款, 交房]
 comments: true
 image:
   feature: 2017-01-01-Chinese-In-Norway-Buy-Property.jpg
@@ -141,7 +141,7 @@ Tomannsbolig，直译过来是两人住宅。这是一种怎样的房子呢，�
 
 * Sparebank1
 
-    <a href="https://www.sparebank1.no/nb/bank/privat/kundeservice/verktoy/lanekalkulator.html" target="_blank">Sparebank1 SMN 房贷计算器</a>
+    <a href="https://www.sparebank1.no/nb/bank/privat/kundeservice/verktoy/lanekalkulator.html" target="_blank">Sparebank1 房贷计算器</a>
 
 * DNB
 
@@ -205,6 +205,9 @@ Tomannsbolig，直译过来是两人住宅。这是一种怎样的房子呢，�
 
 ## 看房
 
+知道自己能贷多少钱之后，你心里应该有底可以买什么价位的房子了，那么开始挑房子看房子啦！
+在Finn上面看中合意的房子后，找到房子展示的日期，到时候去看房子。
+
 看房是一件非常需要经验的事情，我会在今后的日子里慢慢更新，欢迎留言。
 
 * 房型
@@ -215,9 +218,17 @@ Tomannsbolig，直译过来是两人住宅。这是一种怎样的房子呢，�
 
 ---
 
-## 竞标
+## 竞价
+
+竞标时间是在房子展示日期的第二天早上，截止日期在中午十二点。
+如果没人竞价，那么竞价阶段就在十二点结束。
+如果超过十二点还有报价，那么每一次报价都会延长半小时的截止时间。
 
 
 ---
 
 ## 付款
+
+---
+
+## 交房
