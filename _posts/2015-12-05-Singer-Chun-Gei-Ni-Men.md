@@ -12,8 +12,8 @@ image:
 # 我是歌手范春——给你们
 
 <audio controls>
-  <source src="{{ site.url }}/songs/给你们.ogg" ></source>
-  <source src="{{ site.url }}/songs/给你们.mp3" ></source>
+  <source src="{{ site.url }}/songs/Gei_Ni_Men.ogg" ></source>
+  <source src="{{ site.url }}/songs/Gei_Ni_Men.mp3" ></source>
 </audio>
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
