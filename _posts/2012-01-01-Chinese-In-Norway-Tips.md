@@ -66,7 +66,7 @@ image:
     - <a href="http://komplett.no" target="_blank">Komplett</a>
     - <a href="http://elkjop.no" target="_blank">Elkjøp</a>
     - <a href="http://expert.no" target="_blank">Expert</a>
-    - <a href="http://lefdal.no" target="_blank">Lefdal</a>
+    - <a href="http://lefdal.com" target="_blank">Lefdal</a>
     - <a href="http://mpx.no" target="_blank">MPX</a>
 
 + 衣服
