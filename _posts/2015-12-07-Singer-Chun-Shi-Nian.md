@@ -9,6 +9,8 @@ image:
   feature: 2015-12-07-Shi-Nian.jpg
 ---
 
+<img src="{{ site.url }}/logo.png" />
+
 # 我是歌手范春——十年
 
 <audio controls>
