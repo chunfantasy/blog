@@ -8,6 +8,7 @@
 </head>
 
 <body id="post" {% if page.image.feature %}class="feature"{% endif %}>
+<img src="{{ site.url }}/images/logo.png" alt="logo" style="height: 0; width: 0">
 
 {% include browser-upgrade.html %}
 {% include navigation.html %}
@@ -20,8 +21,6 @@
   </div><!-- /.entry-image -->
 </div><!-- /.entry-header -->
 {% endif %}
-
-<img src="{{ site.url }}/images/logo.png" alt="logo" style="height: 0; width: 0">
 
 <div id="main" role="main">
   <article class="hentry">
