@@ -3,7 +3,7 @@ layout: post
 title: 挪威实用网站大全
 description: "挪威实用网站大全，生活、学习、娱乐、网购、找工作，应有尽有。"
 modified: 2017-12-08
-tags: [挪威, 网站, 生活, 学习, 娱乐, 网购, 工作]
+tags: [挪威, 网站, 大全, 生活, 学习, 娱乐, 网购, 工作]
 comments: true
 image:
   feature: 2016-05-01-Photographer-Chun-Moholt-2016.jpg
