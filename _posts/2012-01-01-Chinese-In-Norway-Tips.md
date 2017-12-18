@@ -35,8 +35,8 @@ image:
 + <a href="http://sirkusshopping.no" target="_blank">Trondheim Sirkus 购物中心</a>
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
 + <a href="https://tbuss.no/gratis-handletur-til-sverige/" target="_blank">Tbuss 瑞典采购班车</a>
++ <a href="https://www.legelisten.no/leger?q=trondheim" target="_blank">私人医生查询</a>
 + <a href="http://www.storm.no/nordlys/" target="_blank">极光预测</a>
-
 + 出行
     - <a href="https://www.finn.no/reise/" target="_blank">Finn 出行</a>
     - <a href="https://ruter.no/en/" target="_blank">Oslo 公交 Ruter#</a>
@@ -46,7 +46,6 @@ image:
     - <a href="http://sas.no" target="_blank">北欧航空 SAS</a>
     - <a href="http://klm.no" target="_blank">荷兰皇家航空 KLM</a>
     - <a href="http://momondo.no" target="_blank">Momondo 综合查询</a>
-
 + 住房
     - <a href="https://www.finn.no/realestate/browse.html" target="_blank">Finn 房屋</a>
     - <a href="https://www.sio.no/en/" target="_blank">Oslo 学生住房</a>
