@@ -2,8 +2,8 @@
 layout: post
 title: 挪威实用网站大全
 description: "挪威实用网站大全，生活、学习、娱乐、网购、找工作，应有尽有。"
-modified: 2017-08-08
-tags: [挪威]
+modified: 2017-12-08
+tags: [挪威, 网站, 生活, 学习, 娱乐, 网购, 工作]
 comments: true
 image:
   feature: 2016-05-01-Photographer-Chun-Moholt-2016.jpg
@@ -22,6 +22,8 @@ image:
 ### &nbsp;
 
 本文章随时保持更新，意见、建议、报错或者其他问题请发邮件至email@chun.no  ^_^
+2017-12-18 更新`私人医生查询`
+
 
 ---
 
