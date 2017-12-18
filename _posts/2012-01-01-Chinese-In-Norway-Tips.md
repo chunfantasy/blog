@@ -60,14 +60,12 @@ image:
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
 + <a href="http://ikea.no" target="_blank">宜家</a>
 + <a href="http://www.clasohlson.com/no/" target="_blank">Clas Ohlson 日常用品</a>
-
 + 电子电器
     - <a href="http://komplett.no" target="_blank">Komplett</a>
     - <a href="http://elkjop.no" target="_blank">Elkjøp</a>
     - <a href="http://expert.no" target="_blank">Expert</a>
     - <a href="http://lefdal.com" target="_blank">Lefdal</a>
     - <a href="http://mpx.no" target="_blank">MPX</a>
-
 + 衣服
     - <a href="https://www.zara.com/no/en/" target="_blank">Zara</a>
     - <a href="https://www.veromoda.com/no/no/home" target="_blank">Vero Moda</a>
