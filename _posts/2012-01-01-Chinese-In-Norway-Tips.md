@@ -22,7 +22,8 @@ image:
 ### &nbsp;
 
 本文章随时保持更新，意见、建议、报错或者其他问题请发邮件至email@chun.no  ^_^
-2017-12-18 更新`私人医生查询`
+
+2017-12-18 更新`家庭医生查询`
 
 
 ---
@@ -37,7 +38,7 @@ image:
 + <a href="http://sirkusshopping.no" target="_blank">Trondheim Sirkus 购物中心</a>
 + <a href="http://prisjakt.no" target="_blank">Prisjakt 比价网站</a>
 + <a href="https://tbuss.no/gratis-handletur-til-sverige/" target="_blank">Tbuss 瑞典采购班车</a>
-+ <a href="https://www.legelisten.no/leger?q=trondheim" target="_blank">私人医生查询</a>
++ <a href="https://www.legelisten.no/leger?q=trondheim" target="_blank">家庭医生查询</a>
 + <a href="http://www.storm.no/nordlys/" target="_blank">极光预测</a>
 + 出行
     - <a href="https://www.finn.no/reise/" target="_blank">Finn 出行</a>
