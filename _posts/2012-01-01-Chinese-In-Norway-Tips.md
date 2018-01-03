@@ -2,7 +2,7 @@
 layout: post
 title: 挪威实用网站大全
 description: "挪威实用网站大全，生活、学习、娱乐、网购、找工作，应有尽有。"
-modified: 2017-12-08
+modified: 2019-01-03
 tags: [挪威, 网站, 大全, 生活, 学习, 娱乐, 网购, 工作]
 comments: true
 image:
@@ -23,7 +23,7 @@ image:
 
 本文章随时保持更新，意见、建议、报错或者其他问题请发邮件至email@chun.no  ^_^
 
-2017-12-18 更新`家庭医生查询`
+2018-01-03 更新`添加Hybel.no住房信息`
 
 
 ---
@@ -54,6 +54,7 @@ image:
     - <a href="https://www.sio.no/en/" target="_blank">Oslo 学生住房</a>
     - <a href="http://sit.no" target="_blank">Trondheim 学生住房</a>
     - <a href="http://frost.no" target="_blank">Trondheim Voll</a>
+    - <a href="https://hybel.no/" target="_blank">Hybel.no/</a>
 
 ---
 
