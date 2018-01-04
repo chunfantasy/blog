@@ -56,7 +56,7 @@ image:
     - <a href="https://www.sio.no/en/" target="_blank">Oslo 学生住房</a>
     - <a href="http://sit.no" target="_blank">Trondheim 学生住房</a>
     - <a href="http://frost.no" target="_blank">Trondheim Voll</a>
-    - <a href="https://hybel.no/" target="_blank">Hybel.no/</a>
+    - <a href="https://hybel.no/" target="_blank">Hybel.no</a>
 
 ---
 
