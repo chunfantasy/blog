@@ -11,7 +11,7 @@ image:
 
 # Wedding Video for Chun and Ye
 
-<video controls>
+<video width="480" height="360" controls>
   <source src="{{ site.url }}/videos/Charia.mp4"></source>
 </video>
 <div id="ckepop">
