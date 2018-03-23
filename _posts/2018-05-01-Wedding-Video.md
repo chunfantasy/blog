@@ -12,7 +12,7 @@ image:
 # Wedding Video for Chun and Ye
 
 <video controls>
-  <source src="{{ site.url }}/videos/Charia"></source>
+  <source src="{{ site.url }}/videos/Charia.mp4"></source>
 </video>
 <div id="ckepop">
 <span class="jiathis_txt">分享到：</span>
