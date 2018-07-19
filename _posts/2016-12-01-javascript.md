@@ -2,7 +2,7 @@
 layout: post
 title: JavaScript Guideline
 description: "This note is about the JavaScript."
-modified: 2017-07-01
+modified: 2018-07-01
 tags: [Program Language]
 comments: true
 image:
