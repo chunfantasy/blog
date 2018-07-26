@@ -13,7 +13,7 @@ This note is about the configuration of testing environment with Spring Boot.
 
 ## Start application
 
-{% highlight kotlin %}
+{% highlight java %}
 @SpringBootApplication
 @ComponentScan("chun.api")
 class ApiApplication {
