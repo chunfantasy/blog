@@ -16,6 +16,8 @@ image:
     <a href="#" class="social-share-icon icon-qq"></a>
     <a href="#" class="social-share-icon icon-wechat"></a>
 </div>
+<link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
+<script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
 
 ### &nbsp;
 
