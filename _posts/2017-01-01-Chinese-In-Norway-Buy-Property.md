@@ -11,12 +11,30 @@ image:
 
 # 挪威探险记——购房惊魂
 
-<div id="ckepop">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_tsina">微博</a>
-<a href="http://www.jiathis.com/share?uid=2074997"  class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a></div>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2074997" charset="utf-8"></script>
+<div class="bdsharebuttonbox">
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到领英"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+</div>
+<script>
+    window._bd_share_config={
+        "common":{
+            // "bdSnsKey":{挪威, 购房, 买房, 贷款, 类型, 竞价, 条件, 材料, 看房, 付款, 交房},
+            "bdText":"挪威探险记——购房惊魂",
+            "bdDesc":"2017年，是我来到挪威的第六个年头，这一年注定是个不平凡的一年。",
+            "bdUrl":"https://blog.chun.no/Chinese-In-Norway-Buy-Property/",
+            "bdPic":"",
+            "bdMini":"2",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "share":{}
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
 
 ### &nbsp;
