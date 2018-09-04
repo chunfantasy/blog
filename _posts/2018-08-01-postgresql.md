@@ -29,3 +29,21 @@ $ sudo service postgresql restart
 // Connect
 $ psql -U postgres
 ```
+
+# Create User
+
+``` bash
+$ CREATE ROLE username WITH LOGIN PASSWORD 'password';
+```
+
+# Grant
+
+``` bash
+$ ALTER ROLE username CREATEDB;
+```
+
+# Create Database
+
+``` bash
+$ CREATE DATABASE db_name;
+```
