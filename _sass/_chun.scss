@@ -8,8 +8,6 @@
 	top: 0;
 	right: 0;
 	z-index: 1000;
-	display: flex;
-	flex-direction: column;
 	@media #{$small} {
 		position: fixed;
 		max-width: 280px;
@@ -22,14 +20,17 @@
 		max-width: 350px;
 		position: fixed;
 	}
+}
 
-	.dl-pay {
-		display: flex;
-		flex-direction: row;
+.pay {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: darkgray;
 
-		img {
-			flex-grow: 1;
-			max-width: 140px;
-		}
+	img {
+		max-width: 280px;
+		max-height: 380px;
 	}
 }
