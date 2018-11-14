@@ -8,6 +8,8 @@
 	top: 0;
 	right: 0;
 	z-index: 1000;
+	display: flex;
+	flex-direction: column;
 	@media #{$small} {
 		position: fixed;
 		max-width: 280px;
@@ -19,5 +21,15 @@
 	@media #{$large} {
 		max-width: 350px;
 		position: fixed;
+	}
+
+	.dl-pay {
+		display: flex;
+		flex-direction: row;
+
+		img {
+			flex-grow: 1;
+			max-width: 140px;
+		}
 	}
 }
