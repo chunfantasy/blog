@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 挪威探险记——两万五千人民币搞得定挪威驾照？
-description: "你觉得你是个老司机，但很有可能三万块都搞不定挪威驾照。我写这篇文章的主要目的就是帮你省钱！哈哈"
+title: 挪威探险记——三万搞得定挪威驾照？
+description: "你觉得你是个老司机，很有可能三万块搞不定挪威驾照"
 modified: 2017-07-01
-tags: [挪威, 驾照, 理论考试, 路考, 练车]
+tags: [挪威, 驾照, 理论考试, 路考]
 comments: true
 image:
   feature: 2018-09-01-Chinese-In-Norway-Driving-License.jpg
