@@ -167,17 +167,7 @@ $ npm start
 ## Run on device
 
 ``` bash
-# Add the following code to app.json
-name: "ChunReactNative",
-displayName: "ChunReactNative",
-```
-
-``` bash
-$ npm i
-$ ./node_modules/.bin/react-native eject
-
-npm install -g ios-deploy
-
+$ npm run eject
 ```
 ---
 
