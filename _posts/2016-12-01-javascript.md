@@ -75,6 +75,10 @@ ReadStream.pipe(WriteStream)
 
 ## Debug
 
+* console.log()
+* node debug example.js
+* npm install -g node-inspector / node --debug-brk example.js
+
 
 ---
 
