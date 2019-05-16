@@ -61,6 +61,24 @@ $ node -i (--interactive)
 >+ <a href="https://nodejs.org/api/modules.html" target="_blank">Moduels</a>
 >+ <a href="https://nodejs.org/api/errors.html" target="_blank">Errors</a>
 
+#### Timers
+
+`process.nextTick(callback)` has the same functionality but faster than `setTimeout(callback, 0)`.
+
+#### Stream
+
+Stream event `data`
+
+Stream event `drain`
+
+ReadStream.pipe(WriteStream)
+
+## Debug
+
+* console.log()
+* node debug example.js
+* npm install -g node-inspector / node --debug-brk example.js
+
 
 ---
 
