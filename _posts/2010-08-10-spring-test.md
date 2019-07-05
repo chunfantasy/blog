@@ -9,6 +9,14 @@ comments: true
 
 This note is about the configuration of testing environment with Spring.
 
+<div class="social-share" data-initialized="true">
+    <a href="#" class="social-share-icon icon-weibo"></a>
+    <a href="#" class="social-share-icon icon-qq"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+<link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
+<script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
+
 # Dependency with Maven
 
 {% highlight xml %}
