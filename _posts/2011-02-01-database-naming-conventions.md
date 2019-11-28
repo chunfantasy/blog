@@ -9,6 +9,14 @@ comments: true
 
 A naming convention is important when working with databases in order to provide a clear structure and format; especially in team environments. By using these conventions the database can be understood by anyone applying these conventions; thus increasing maintainability. These are not rules but guidelines that can be adapted to any working environment.
 
+<div class="social-share" data-initialized="true">
+    <a href="#" class="social-share-icon icon-weibo"></a>
+    <a href="#" class="social-share-icon icon-qq"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+<link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
+<script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
+
 # General Conventions
 
 * All names should be in camelcase with the first letter in lower case.
@@ -157,12 +165,12 @@ date_created
 date_updated
 {% endhighlight %}
 
-* Try to make 
+* Try to make
 
 # Index Conventions
 * Always prefix all index names with ''idx_'' to distinguish it as an index.
 * The names of the index should at least convey the columns it reaches or at least the purpose of the index.
 
 # Views Convention
-* Always try to use names that make sense and are descriptive for the views. Avoid acronyms and abbreviations if at all possible. If acronyms are used, then make sure to capitalize them. Abbreviations used should be well known abbreviations and should be camel cased. 
+* Always try to use names that make sense and are descriptive for the views. Avoid acronyms and abbreviations if at all possible. If acronyms are used, then make sure to capitalize them. Abbreviations used should be well known abbreviations and should be camel cased.
 * All views should be prefixed with ''vw_'' in order to distinguish them in SQL statements from regular database tables.

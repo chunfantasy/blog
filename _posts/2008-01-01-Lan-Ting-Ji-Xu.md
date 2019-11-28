@@ -9,7 +9,15 @@ image:
   feature: 2008-01-01-Lan-Ting-Ji-Xu.jpg
 ---
 
-#兰亭集序（王羲之）
+<div class="social-share" data-initialized="true">
+    <a href="#" class="social-share-icon icon-weibo"></a>
+    <a href="#" class="social-share-icon icon-qq"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+<link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
+<script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
+
+## 兰亭集序（王羲之）
 
 ### 永和九年，岁在癸（guǐ）丑，暮春之初，会于会（kuài）稽（jī）山阴之兰亭，修禊（xì）事也。群贤毕至，少长（zhǎng）咸集。此地有崇山峻岭，茂林修竹，又有清流激湍，映带左右，引以为流觞（shāng）曲水，列坐其次。虽无丝竹管弦之盛，一觞一咏，亦足以畅叙幽情。
 
