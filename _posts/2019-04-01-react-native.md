@@ -1,7 +1,7 @@
 ---
 layout: post
 title: React Native
-description: "This note is about hot to use React Native."
+description: "This note is about how to use React Native."
 modified: 2019-04-01
 tags: [Framework]
 comments: true
