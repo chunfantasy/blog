@@ -40,7 +40,6 @@ timezone:    Europe/Oslo
 future:      true
 highlighter: Rouge
 markdown:    kramdown
-mathjax:     true
 plugins_dir:
   - jekyll-sitemap
   - jekyll-paginate
