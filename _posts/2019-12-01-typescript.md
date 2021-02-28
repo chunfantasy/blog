@@ -13,7 +13,7 @@ image:
 
 ---
 
-## Cannot find modoule issue
+## Cannot find module issue
 
 ```bash
 Cannot find module '*.jpg'.ts(2307)
