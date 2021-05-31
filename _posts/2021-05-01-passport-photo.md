@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 专业处理中国护照照片
-description: "专业处理中国护照照片，保证一次不通过"
+title: 专业处理中国护照照片一次通过
+description: "专业处理中国护照照片一次通过"
 modified: 2021-05-01
 tags: [护照,签证,照片,Chinese passport,Chinese visa,Photo]
 comments: true
 ---
 
-## 专业处理中国护照照片
+## 专业处理中国护照照片一次通过
 
 <div class="social-share" data-initialized="true">
     <a href="#" class="social-share-icon icon-weibo"></a>
@@ -17,10 +17,6 @@ comments: true
 <link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
 <script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
 
-### &nbsp;
-
----
-
 ### 处理流程
 
 1. 添加微信`chunfantasy`或扫下方二维码，备注处理护照照片
@@ -28,7 +24,7 @@ comments: true
 3. 微信支付100RMB并注明邮箱
 4. 成品将通过邮箱发回
 
-> 一次不通过全额退款，一直处理到通过
+> 一次不通过全额退款，并且一直处理到通过
 
 ### 规格要求
 
