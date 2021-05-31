@@ -16,6 +16,8 @@ https://ppt.mfa.gov.cn/appo/page/instruction.html
 ### 处理流程
 
 1. 添加微信`chunfantasy`或扫码
+![Wechat]({{ site.url }}/images/wechat.jpg)
+
 2. 发送照片到`email@chun.no`
 3. 微信支付100RMB并注明邮箱
 4. 成品将通过邮箱发回
