@@ -1,13 +1,25 @@
 ---
 layout: post
 title: 专业处理中国护照照片
-description: "保证一次不通过"
+description: "专业处理中国护照照片，保证一次不通过"
 modified: 2021-05-01
 tags: [护照,签证,照片,Chinese passport,Chinese visa,Photo]
 comments: true
 ---
 
 ## 专业处理中国护照照片
+
+<div class="social-share" data-initialized="true">
+    <a href="#" class="social-share-icon icon-weibo"></a>
+    <a href="#" class="social-share-icon icon-qq"></a>
+    <a href="#" class="social-share-icon icon-wechat"></a>
+</div>
+<link rel="stylesheet" href="https://resource.chun.no/sharejs/css/share.min.css">
+<script src="https://resource.chun.no/sharejs/js/social-share.min.js"></script>
+
+### &nbsp;
+
+---
 
 ### 处理流程
 
