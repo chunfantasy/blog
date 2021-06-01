@@ -30,7 +30,7 @@ comments: true
 
 [https://ppt.mfa.gov.cn/appo/page/instruction.html](https://ppt.mfa.gov.cn/appo/page/instruction.html)
 
-### 如需拍照可微信联系，费用150克朗，地点Trondheim
+### 如需拍照可微信联系，额外收取150克朗拍照费用，地点Trondheim
 
 疫情期间暂不建议来拍照
 
