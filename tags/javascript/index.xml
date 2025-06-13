@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JavaScript on Chun's Blog</title><link>https://chun.no/tags/javascript/</link><description>Recent content in JavaScript on Chun's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 01 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://chun.no/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Loop</title><link>https://chun.no/p/event-loop/</link><pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/event-loop/</guid><description>&lt;img src="https://chun.no/p/event-loop/cover.png" alt="Featured image of post Event Loop" />&lt;p>&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener"
+>https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://javascript.info/event-loop" target="_blank" rel="noopener"
+>https://javascript.info/event-loop&lt;/a>&lt;/p>
+&lt;h2 id="the-event-loop">The event loop
+&lt;/h2>&lt;p>The &lt;em>event loop&lt;/em> concept is very simple. There&amp;rsquo;s an endless
+loop, where the JavaScript engine waits for tasks, executes them and
+then sleeps, waiting for more tasks.&lt;/p>
+&lt;p>The general algorithm of the engine:&lt;/p>
+&lt;ol>
+&lt;li>While there are tasks:
+&lt;ul>
+&lt;li>execute them, starting with the oldest task.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sleep until a task appears, then go to 1.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://chun.no/p/event-loop/event-loop-chart.png"
+width="734"
+height="675"
+srcset="https://chun.no/p/event-loop/event-loop-chart_hu_a172a6128b70f404.png 480w, https://chun.no/p/event-loop/event-loop-chart_hu_81417f95c54e4c04.png 1024w"
+loading="lazy"
+alt="Event Loop"
+class="gallery-image"
+data-flex-grow="108"
+data-flex-basis="260px"
+>&lt;/p>
+&lt;p>队列里面的都是宏任务（Task）&lt;/p>
+&lt;p>在以下时机，任务会被添加到任务队列：&lt;/p>
+&lt;ul>
+&lt;li>一段新程序或子程序被直接执行时（比如从一个控制台，或在一个 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script" target="_blank" rel="noopener"
+>&lt;code>&amp;lt;script&amp;gt;&lt;/code>&lt;/a> 元素中运行代码）。&lt;/li>
+&lt;li>触发了一个事件，将其回调函数添加到任务队列时。&lt;/li>
+&lt;li>执行到一个由 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout" target="_blank" rel="noopener"
+>&lt;code>setTimeout()&lt;/code>&lt;/a> 或 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval" target="_blank" rel="noopener"
+>&lt;code>setInterval()&lt;/code>&lt;/a> 创建的 timeout 或 interval，以致相应的回调函数被添加到任务队列时。&lt;/li>
+&lt;/ul>
+&lt;p>异步任务需要适当的管理。为此，ECMA 标准规定了一个内部队列 &lt;code>PromiseJobs&lt;/code>，通常被称为&amp;quot;微任务队列（microtask queue）&amp;quot;（V8 术语）。&lt;/p>
+&lt;p>&lt;strong>每个宏任务之后，引擎会立即执行微任务队列中的所有任务，然后再执行其他的宏任务，或渲染，或进行其他任何操作。&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">setTimeout&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;timeout&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Promise&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">resolve&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">then&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;promise&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;code&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里的执行顺序是怎样的？&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>code&lt;/code> 首先显示，因为它是常规的同步调用。&lt;/li>
+&lt;li>&lt;code>promise&lt;/code> 第二个出现，因为 &lt;code>then&lt;/code> 会通过微任务队列，并在当前代码之后执行。&lt;/li>
+&lt;li>&lt;code>timeout&lt;/code> 最后显示，因为它是一个宏任务。&lt;/li>
+&lt;/ol>
+&lt;h3 id="stack">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#stack" target="_blank" rel="noopener"
+>Stack&lt;/a>
+&lt;/h3>&lt;p>Function calls form a stack of &lt;em>frames&lt;/em>.&lt;/p>
+&lt;h3 id="heap">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#heap" target="_blank" rel="noopener"
+>Heap&lt;/a>
+&lt;/h3>&lt;p>Objects are allocated in a heap which is just a name to denote a large (mostly unstructured) region of memory.&lt;/p>
+&lt;h3 id="queue">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#queue" target="_blank" rel="noopener"
+>Queue&lt;/a>
+&lt;/h3>&lt;p>A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function that gets called to handle the message.&lt;/p>
+&lt;h3 id="heading">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#run-to-completion" target="_blank" rel="noopener"
+>&amp;ldquo;Run-to-completion&amp;rdquo;&lt;/a>
+&lt;/h3>&lt;p>Each message is processed completely before any other message is processed.&lt;/p>
+&lt;p>Window event loop&lt;/p>
+&lt;p>The window event loop is the one that drives all of the windows
+sharing a similar origin (though there are further limits to this, as
+described below).&lt;/p>
+&lt;p>Worker event loop&lt;/p>
+&lt;p>A worker event loop is one which drives a worker; this includes all forms of workers, including basic &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank" rel="noopener"
+>web workers&lt;/a>, &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker" target="_blank" rel="noopener"
+>shared workers&lt;/a>, and &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener"
+>service workers&lt;/a>.
+Workers are kept in one or more agents that are separate from the
+&amp;ldquo;main&amp;rdquo; code; the browser may use a single event loop for all of the
+workers of a given type or may use multiple event loops to handle them.&lt;/p>
+&lt;p>Worklet event loop&lt;/p>
+&lt;p>A &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet" target="_blank" rel="noopener"
+>worklet&lt;/a>
+event loop is the event loop used to drive agents which run the code
+for the worklets for a given agent. This includes worklets of type
+&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet" target="_blank" rel="noopener"
+>&lt;code>Worklet&lt;/code>&lt;/a>, &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet" target="_blank" rel="noopener"
+>&lt;code>AudioWorklet&lt;/code>&lt;/a>, and &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/PaintWorklet" target="_blank" rel="noopener"
+>&lt;code>PaintWorklet&lt;/code>&lt;/a>.&lt;/p></description></item></channel></rss>

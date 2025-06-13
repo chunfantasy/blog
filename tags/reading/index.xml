@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reading on Chun's Blog</title><link>https://chun.no/tags/reading/</link><description>Recent content in Reading on Chun's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://chun.no/tags/reading/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian</title><link>https://chun.no/p/reading-notes/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://chun.no/p/reading-notes/</guid><description>&lt;h1 id="themes">Themes
+&lt;/h1>&lt;p>Apperance -&amp;gt; Theme -&amp;gt; Manage -&amp;gt; Solarized&lt;/p>
+&lt;h1 id="plugins">Plugins
+&lt;/h1>&lt;h2 id="remotely-save">remotely-save
+&lt;/h2>&lt;ul>
+&lt;li>Server address need to be
+&lt;a class="link" href="https://drive.home.chun.no/remote.php/dav/files/chun/Chun/" target="_blank" rel="noopener"
+>https://drive.home.chun.no/remote.php/dav/files/chun/Chun/&lt;/a>
+&lt;ul>
+&lt;li>The root path is &lt;a class="link" href="https://drive.home.chun.no/remote.php/dav/files/" target="_blank" rel="noopener"
+>https://drive.home.chun.no/remote.php/dav/files/&lt;/a>&lt;/li>
+&lt;li>The full path is &lt;a class="link" href="https://drive.home.chun.no/remote.php/dav/files/%7busername%7d/%7bfolder%7d/" target="_blank" rel="noopener"
+>https://drive.home.chun.no/remote.php/dav/files/{username}/{folder}/&lt;/a>&lt;/li>
+&lt;li>If the vault is not at the root, the up level folders need to append to the server, e.g. here is &lt;strong>Chun&lt;/strong>&lt;/li>
+&lt;li>&lt;em>/&lt;/em> is needed at the end&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Basic Settings
+&lt;ul>
+&lt;li>Schedule for Auto Run: Every 1 minute on mobile will drain the battery&lt;/li>
+&lt;li>Rune Once on Startup&lt;/li>
+&lt;li>Sync on Save&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Advance Settings
+&lt;ul>
+&lt;li>Sync config Dir&lt;/li>
+&lt;li>Mobile Status Bar (mobile only)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>绝对坦率</title><link>https://chun.no/p/reading-notes/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://chun.no/p/reading-notes/</guid><description>&lt;h1 id="序言">序言
+&lt;/h1>&lt;p>作者曾就职一家公司，老板没人性，所以他励志做个好老板，于是辞职创业，其中招了个员工对同事都很好，但是活干不好，作者为了不伤感情，依然对他很好很包容，但是时间久了，同事不乐意了，因为他的锅同事要替他兜着，直到有一次犯错导致公司损失一大客户，不得不开除他，最后还是闹掰了，作者开始怀疑自己。&lt;/p>
+&lt;p>作者找了份谷歌的工作，发现谷歌的下属可以怼上司，而且上司听得津津有味，六年后他总结，谷歌的管理者们不是通过职权把事情搞定，而是不断寻找不一样且更好的办法去解决事情。&lt;/p>
+&lt;p>同时，西南边开了家苹果工厂，作者的导师去那做高管。苹果说，我们雇人来是要告诉我们做什么的，而不是相反。苹果满足员工各个方向的野心，而不像谷歌，仅仅只有职位的晋升。&lt;/p>
+&lt;p>但不管谷歌还是苹果，一个领导带领团队获得结果的能力，不是去告诉团队做什么而是去倾听和理解，不是直白的表述而是辩论，不是做一个决策者而是推动团队来决定，不是命令而是说服，不是知晓而是学习。&lt;/p>
+&lt;p>想要拥有这些能力，作为领导要维护好与队员信任的关系，从而保证与队员舒适的沟通，这种关系是领导工作的核心，作者给这种关系取了一个名字，也就是书名，绝对坦率。&lt;/p>
+&lt;p>哦，这本书教我如何与上下级建立和维护绝对坦率这种关系&lt;/p>
+&lt;h1 id="第一章">第一章
+&lt;/h1>&lt;p>建立绝对坦率的关系，把自己的全部带到工作中&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>这就叫管理，它是你的工作&lt;/p>
+&lt;p>作者之前一直认为专业的事情才是真正的工作而低估了“情绪劳动”。作者认为“情绪劳动”是专属服务行业和健康医疗行业的，包括精神科医生、护士、医生、服务员、空乘。但是作者的CEO教练告诉他，领导也是一种“情绪劳动”。“情绪劳动”是管理工作的一部分，而且是成为一个好领导非常重要的部分。个人理解，所谓“情绪劳动”，就是跟同事聊天，倾听同事，了解同事，照顾同事的情绪，发自内心的关心同事。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何做一个好领导&lt;/p>
+&lt;p>指导团队完成目标。第一，指导。指导经常被成为给出反馈。反馈包括表扬和批评，批评尤其重要。第二，团建。建立一个有凝聚力的团队可以帮团队所需角色找到正确的人——通过雇人，解雇，晋升。第三，完成目标。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>关系驱动，而非权力驱动&lt;/p>
+&lt;p>关系是管理工作的核心。关系决定了一个管理者是否能够胜任他的职责。一、建立一个表扬批评良好的文化氛围，让每个人都朝着对的方向行动；二、了解每个人的动力，避免累坏了或者太无聊，从而保证团队凝聚力；三、相互合作地达成目标。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>绝对坦率&lt;/p>
+&lt;p>建立信任是无章可循的。但是有两个维度可以去发展，第一，关心个人，意思就是不仅仅是关心业务。第二，直接挑战，有什么说什么，当事情没做好的时候告诉同事他们的工作没做好；当想要的角色没法满足的时候告诉同事他们没得到；当要给他们加一层领导的时候告诉同事他们要空降一层领导；当结果证明同事正在做的事情不合理的时候告诉他们结果不理想；等等。&lt;/p>
+&lt;p>关心个人和直接挑战结合起来就会发生绝对坦率。同事大概率会：&lt;/p>
+&lt;ol>
+&lt;li>接受你的表扬和批评并行动&lt;/li>
+&lt;li>告诉你他们的真实想法，包括你做的好的，更重要的，包括你做的不好的&lt;/li>
+&lt;li>他们会把你绝对坦率的行为传递给另一个人&lt;/li>
+&lt;li>拥抱他们在团队里的角色&lt;/li>
+&lt;li>专注完成目标&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>关心个人&lt;/p>
+&lt;p>这里指的是关心直接向你汇报的同事。关心是工作机器和管理狂的解毒剂。不是说记个生日记个同事家人的名字。我的理解是作为朋友的发自内心的关心。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>直接挑战（我觉得有时候翻译成为合理的质疑更合适）&lt;/p>
+&lt;p>挑战（质疑）他人，并且鼓励他人挑战（质疑）你。直接挑战（质疑）可以帮助建立信任因为，一、不管同事的事情做的好与不好，它显示了你是在意的；二、它显示了你是愿意接受批评的，同时你也是愿意改正错误的。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>什么不是绝对坦率&lt;/p>
+&lt;p>绝对坦率不是忽略关心的严厉指责，谦逊很重要。&lt;/p>
+&lt;p>绝对坦率不是鸡蛋里挑骨头的邀请，直接挑战是很伤神的&lt;/p>
+&lt;p>绝对坦率不是自上而下的，它可对上，可对下，可对同级&lt;/p>
+&lt;p>绝对坦率不是闲聊，不是一直保持外向，它会让团队内向的人精疲力竭，如果你是个内向的人也会让你很快耗尽精力&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>绝对坦率是人类普遍性的，但在人际关系和文化上是相对的。这里举了一个日本和一个中国的例子，差别很大，尤其是在中国人的例子上我看到了些许自己的影子。例子里的日本人过于礼貌，以至于很难把问题搞清楚；中国人则是对领导太恭敬，直到作者说服他，作者是真心想被他挑战（质疑），他便开始畅所欲言，之后他自己在中国开了一家叫悠易的公司，我查了一下，确实厉害&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>总结，我发现在读这本书之前我已经做到了很多，很有潜力！哈哈哈！就如同书里中国人的例子，我刚毕业的时候，老板和同事都是六七个三十六到五十之间的大佬，我一直恭恭敬敬。随着技术和经验的提升，我发现大佬们有时候非常肯定的东西也不是一定对，于是我开始挑战（质疑）他们，当然这是有方法的，直接怼会怼出奇葩的故事。随着我挑战越多，我发现，一个人的认知能够被自己改变是一件非常令人兴奋的事情，而且慢慢的赢的了大佬们的尊重。慢慢的，我和大佬们的关系从我被指导渐渐变成了大家一起讨论和商量，有时候还会由我来做出一些决定，这是让我非常自豪的事情。现在团队里来了更多的人，我致力于营造一个开放的环境，让大家互相绝对坦率，虽然我不是领导，哈哈哈&lt;/p></description></item><item><title>读书笔记</title><link>https://chun.no/p/reading-notes/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://chun.no/p/reading-notes/</guid><description>&lt;h2 id="reading-list">Reading list
+&lt;/h2>&lt;ul>
+&lt;li>Agile Retrospectives — Making Good Teams Great&lt;/li>
+&lt;/ul>
+&lt;h2 id="notes">Notes
+&lt;/h2>&lt;p>[[绝对坦率]]
+[[经济]]&lt;/p></description></item></channel></rss>

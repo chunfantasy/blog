@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spring Boot on Chun's Blog</title><link>https://chun.no/tags/spring-boot/</link><description>Recent content in Spring Boot on Chun's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://chun.no/tags/spring-boot/index.xml" rel="self" type="application/rss+xml"/><item><title>Spring Boot</title><link>https://chun.no/p/spring-boot/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://chun.no/p/spring-boot/</guid><description>&lt;h1 id="issues">Issues
+&lt;/h1>&lt;hr>
+&lt;p>org.springframework.dao.InvalidDataAccessApiUsageException: No EntityManager with actual transaction available for current thread - cannot reliably process &amp;lsquo;remove&amp;rsquo; call; nested exception is javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process &amp;lsquo;remove&amp;rsquo; call&lt;/p>
+&lt;p>&lt;em>&lt;strong>Solution:&lt;/strong>&lt;/em>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Add @Transactional to deleteByXXXIn()&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>OnDelete(action = OnDeleteAction.CASCADE)
+Put on child property to enable removing parent cascade to current&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Delete clause should be after find clause to make entity managed by transaction.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.loader.MultipleBagFetchException: cannot simultaneously fetch multiple bags: [model.project.FProjectRequest.languageInfoList, model.project.FProjectRequest.certificateInfoList]; nested exception is java.lang.IllegalArgumentException: org.hibernate.loader.MultipleBagFetchException: cannot simultaneously fetch multiple bags: [model.project.FProjectRequest.languageInfoList, model.project.FProjectRequest.certificateInfoList]&lt;/p>
+&lt;p>&lt;em>&lt;strong>Solution:&lt;/strong>&lt;/em>
+Use @OrderColumn on List properties&lt;/p></description></item></channel></rss>

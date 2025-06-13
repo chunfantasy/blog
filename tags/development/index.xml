@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Development on Chun's Blog</title><link>https://chun.no/tags/development/</link><description>Recent content in Development on Chun's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://chun.no/tags/development/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Loop</title><link>https://chun.no/p/event-loop/</link><pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/event-loop/</guid><description>&lt;img src="https://chun.no/p/event-loop/cover.png" alt="Featured image of post Event Loop" />&lt;p>&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop" target="_blank" rel="noopener"
+>https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://javascript.info/event-loop" target="_blank" rel="noopener"
+>https://javascript.info/event-loop&lt;/a>&lt;/p>
+&lt;h2 id="the-event-loop">The event loop
+&lt;/h2>&lt;p>The &lt;em>event loop&lt;/em> concept is very simple. There&amp;rsquo;s an endless
+loop, where the JavaScript engine waits for tasks, executes them and
+then sleeps, waiting for more tasks.&lt;/p>
+&lt;p>The general algorithm of the engine:&lt;/p>
+&lt;ol>
+&lt;li>While there are tasks:
+&lt;ul>
+&lt;li>execute them, starting with the oldest task.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Sleep until a task appears, then go to 1.&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://chun.no/p/event-loop/event-loop-chart.png"
+width="734"
+height="675"
+srcset="https://chun.no/p/event-loop/event-loop-chart_hu_a172a6128b70f404.png 480w, https://chun.no/p/event-loop/event-loop-chart_hu_81417f95c54e4c04.png 1024w"
+loading="lazy"
+alt="Event Loop"
+class="gallery-image"
+data-flex-grow="108"
+data-flex-basis="260px"
+>&lt;/p>
+&lt;p>队列里面的都是宏任务（Task）&lt;/p>
+&lt;p>在以下时机，任务会被添加到任务队列：&lt;/p>
+&lt;ul>
+&lt;li>一段新程序或子程序被直接执行时（比如从一个控制台，或在一个 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script" target="_blank" rel="noopener"
+>&lt;code>&amp;lt;script&amp;gt;&lt;/code>&lt;/a> 元素中运行代码）。&lt;/li>
+&lt;li>触发了一个事件，将其回调函数添加到任务队列时。&lt;/li>
+&lt;li>执行到一个由 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout" target="_blank" rel="noopener"
+>&lt;code>setTimeout()&lt;/code>&lt;/a> 或 &lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval" target="_blank" rel="noopener"
+>&lt;code>setInterval()&lt;/code>&lt;/a> 创建的 timeout 或 interval，以致相应的回调函数被添加到任务队列时。&lt;/li>
+&lt;/ul>
+&lt;p>异步任务需要适当的管理。为此，ECMA 标准规定了一个内部队列 &lt;code>PromiseJobs&lt;/code>，通常被称为&amp;quot;微任务队列（microtask queue）&amp;quot;（V8 术语）。&lt;/p>
+&lt;p>&lt;strong>每个宏任务之后，引擎会立即执行微任务队列中的所有任务，然后再执行其他的宏任务，或渲染，或进行其他任何操作。&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-JavaScript" data-lang="JavaScript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">setTimeout&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;timeout&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Promise&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">resolve&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">then&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;promise&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;code&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这里的执行顺序是怎样的？&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>code&lt;/code> 首先显示，因为它是常规的同步调用。&lt;/li>
+&lt;li>&lt;code>promise&lt;/code> 第二个出现，因为 &lt;code>then&lt;/code> 会通过微任务队列，并在当前代码之后执行。&lt;/li>
+&lt;li>&lt;code>timeout&lt;/code> 最后显示，因为它是一个宏任务。&lt;/li>
+&lt;/ol>
+&lt;h3 id="stack">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#stack" target="_blank" rel="noopener"
+>Stack&lt;/a>
+&lt;/h3>&lt;p>Function calls form a stack of &lt;em>frames&lt;/em>.&lt;/p>
+&lt;h3 id="heap">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#heap" target="_blank" rel="noopener"
+>Heap&lt;/a>
+&lt;/h3>&lt;p>Objects are allocated in a heap which is just a name to denote a large (mostly unstructured) region of memory.&lt;/p>
+&lt;h3 id="queue">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#queue" target="_blank" rel="noopener"
+>Queue&lt;/a>
+&lt;/h3>&lt;p>A JavaScript runtime uses a message queue, which is a list of messages to be processed. Each message has an associated function that gets called to handle the message.&lt;/p>
+&lt;h3 id="heading">&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop#run-to-completion" target="_blank" rel="noopener"
+>&amp;ldquo;Run-to-completion&amp;rdquo;&lt;/a>
+&lt;/h3>&lt;p>Each message is processed completely before any other message is processed.&lt;/p>
+&lt;p>Window event loop&lt;/p>
+&lt;p>The window event loop is the one that drives all of the windows
+sharing a similar origin (though there are further limits to this, as
+described below).&lt;/p>
+&lt;p>Worker event loop&lt;/p>
+&lt;p>A worker event loop is one which drives a worker; this includes all forms of workers, including basic &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API" target="_blank" rel="noopener"
+>web workers&lt;/a>, &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker" target="_blank" rel="noopener"
+>shared workers&lt;/a>, and &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener"
+>service workers&lt;/a>.
+Workers are kept in one or more agents that are separate from the
+&amp;ldquo;main&amp;rdquo; code; the browser may use a single event loop for all of the
+workers of a given type or may use multiple event loops to handle them.&lt;/p>
+&lt;p>Worklet event loop&lt;/p>
+&lt;p>A &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet" target="_blank" rel="noopener"
+>worklet&lt;/a>
+event loop is the event loop used to drive agents which run the code
+for the worklets for a given agent. This includes worklets of type
+&lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/Worklet" target="_blank" rel="noopener"
+>&lt;code>Worklet&lt;/code>&lt;/a>, &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet" target="_blank" rel="noopener"
+>&lt;code>AudioWorklet&lt;/code>&lt;/a>, and &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/API/PaintWorklet" target="_blank" rel="noopener"
+>&lt;code>PaintWorklet&lt;/code>&lt;/a>.&lt;/p></description></item><item><title>Gatsby</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>Environment variables need to start with GATSBY_*&lt;/p>
+&lt;p>Material UI 4 need &lt;a class="link" href="mailto:gatsby-plugin-material-ui@3.0.1" >gatsby-plugin-material-ui@3.0.1&lt;/a>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">Missing field &lt;span class="s1">&amp;#39;verifier&amp;#39;&lt;/span> &lt;span class="k">while&lt;/span> writing result
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solution:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">fetchPolicy: &lt;span class="s1">&amp;#39;no-cache&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h1 id="1-ecmascript-6简介">1. ECMAScript 6简介
+&lt;/h1>&lt;p>ECMAScript是标准&lt;/p>
+&lt;p>JavaScript是实现&lt;/p>
+&lt;p>Babel是转码器，a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.&lt;/p>
+&lt;ul>
+&lt;li>默认只转句法（syntax）&lt;/li>
+&lt;li>不转API&lt;/li>
+&lt;li>转API需要用core-js和regenrator-runtime&lt;/li>
+&lt;/ul>
+&lt;h1 id="2-let和const命令">2. let和const命令
+&lt;/h1>&lt;p>var全局声明&lt;/p>
+&lt;p>let块级作用于声明&lt;/p>
+&lt;p>es6有6种声明变量方法：var，function，let，const，import和class&lt;/p>
+&lt;p>顶层对象&lt;/p>
+&lt;ul>
+&lt;li>浏览器里面，顶层对象是&lt;code>window&lt;/code>，但 Node 和 Web Worker 没有&lt;code>window&lt;/code>。&lt;/li>
+&lt;li>浏览器和 Web Worker 里面，&lt;code>self&lt;/code>也指向顶层对象，但是 Node 没有&lt;code>self&lt;/code>。&lt;/li>
+&lt;li>Node 里面，顶层对象是&lt;code>global&lt;/code>，但其他环境都不支持。&lt;/li>
+&lt;/ul>
+&lt;p>this&lt;/p>
+&lt;ul>
+&lt;li>全局环境中，&lt;code>this&lt;/code>会返回顶层对象。但是，Node.js 模块中&lt;code>this&lt;/code>返回的是当前模块，ES6 模块中&lt;code>this&lt;/code>返回的是&lt;code>undefined&lt;/code>。&lt;/li>
+&lt;li>函数里面的&lt;code>this&lt;/code>，如果函数不是作为对象的方法运行，而是单纯作为函数运行，&lt;code>this&lt;/code>会指向顶层对象。但是，严格模式下，这时&lt;code>this&lt;/code>会返回&lt;code>undefined&lt;/code>。&lt;/li>
+&lt;li>不管是严格模式，还是普通模式，&lt;code>new Function('return this')()&lt;/code>，总是会返回全局对象。但是，如果浏览器用了 CSP（Content Security Policy，内容安全策略），那么&lt;code>eval&lt;/code>、&lt;code>new Function&lt;/code>这些方法都可能无法使用。&lt;/li>
+&lt;/ul>
+&lt;p>ES2020引入globalThis解决以上问题&lt;/p>
+&lt;h1 id="3-变量的解构赋值">3. 变量的解构赋值
+&lt;/h1>&lt;p>解构可以定义默认值&lt;/p>
+&lt;p>解构数组、对象、字符串、数值和布尔值&lt;/p>
+&lt;p>解构函数参数&lt;/p>
+&lt;p>用途&lt;/p>
+&lt;ul>
+&lt;li>交换变量的值&lt;/li>
+&lt;li>从函数返回多个值&lt;/li>
+&lt;li>函数参数的定义&lt;/li>
+&lt;li>提取JSON数据&lt;/li>
+&lt;li>函数参数的默认值&lt;/li>
+&lt;li>遍历Map结构&lt;/li>
+&lt;li>输入模块的指定方法&lt;/li>
+&lt;/ul>
+&lt;h1 id="4-字符串的扩展">4. 字符串的扩展
+&lt;/h1>&lt;h1 id="5-字符串的新增方法">5. 字符串的新增方法
+&lt;/h1>&lt;ul>
+&lt;li>String.fromCodePoint() 不懂&lt;/li>
+&lt;li>String.raw() 不懂&lt;/li>
+&lt;li>codePointAt() 不懂&lt;/li>
+&lt;li>normalize() 不懂&lt;/li>
+&lt;li>includes(), startsWith(), endsWith()&lt;/li>
+&lt;li>repeat()&lt;/li>
+&lt;li>padStart(), padEnd()&lt;/li>
+&lt;li>trimStart(), trimEnd()&lt;/li>
+&lt;li>matchAll()&lt;/li>
+&lt;li>replaceAll()&lt;/li>
+&lt;/ul>
+&lt;h1 id="6-正则的扩展">6. 正则的扩展
+&lt;/h1>&lt;p>构造函数，第二个参数为修饰符（flag），会替换原有的修饰符&lt;/p>
+&lt;p>字符串的正则方法&lt;/p>
+&lt;ul>
+&lt;li>match()&lt;/li>
+&lt;li>replace()&lt;/li>
+&lt;li>search()&lt;/li>
+&lt;li>split()&lt;/li>
+&lt;/ul>
+&lt;p>u修饰符 不懂&lt;/p>
+&lt;p>y修饰符类似g修饰符但是不同&lt;/p>
+&lt;p>flags属性返回正则表达式的修饰符&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;p>需要继续研读此章节&lt;/p>
+&lt;h1 id="7-数值的扩展">7. 数值的扩展
+&lt;/h1>&lt;p>二进制和八进制的表示方法0b, 0o&lt;/p>
+&lt;p>Number.isFinite(), Number.isNaN() 只对数值有效，与全局isFinite(), isNan()不同，全局会先调用Number把非数值转换为数值&lt;/p>
+&lt;p>Number.parseInt(), Number.parseFloat()移植到Number对象&lt;/p>
+&lt;p>Number.isInteger()，JavaScript采用64位双精度格式存储数值，数值超过53个二进制位可能会误判&lt;/p>
+&lt;p>Number.EPSILON极小常量&lt;/p>
+&lt;p>Number.isSafeInteger()&lt;/p>
+&lt;p>Math方法&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;p>需要继续研读此章节&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h3 id="how-to-return-completely-new-state">How to return completely new state?
+&lt;/h3>&lt;p>Return the object of the completely new state in the switch statement.&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>&lt;a class="link" href="https://cloud.tencent.com/developer/article/1756929" target="_blank" rel="noopener"
+>https://cloud.tencent.com/developer/article/1756929&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://mp.weixin.qq.com/s/lCOecMBDxujzSP4a2xWLOA" target="_blank" rel="noopener"
+>https://mp.weixin.qq.com/s/lCOecMBDxujzSP4a2xWLOA&lt;/a>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>A web tool used for managing docker compose&lt;/p>
+&lt;p>&lt;a class="link" href="https://dockge.kuma.pet/" target="_blank" rel="noopener"
+>https://dockge.kuma.pet/&lt;/a>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h2 id="background-jobs">Background jobs
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">sudo su
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">crontab -e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*/5 * * * * docker &lt;span class="nb">exec&lt;/span> -u &lt;span class="m">1000&lt;/span> nextcloud php /var/www/html/cron.php
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>Show hardrive&lt;/p>
+&lt;p>&lt;code>lsblk -o name,mountpoint,label,size,uuid&lt;/code>&lt;/p>
+&lt;p>Edit mount rules&lt;/p>
+&lt;p>&lt;code>vim /etc/fstab&lt;/code>&lt;/p>
+&lt;p>Mount&lt;/p>
+&lt;p>&lt;code>mount -a&lt;/code>&lt;/p>
+&lt;p>Copy with progress bar&lt;/p>
+&lt;p>&lt;code>rsync -ah --info=progress2 [source] [destination]&lt;/code>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h2 id="工具">工具
+&lt;/h2>&lt;ul>
+&lt;li>Remmina：远程桌面&lt;/li>
+&lt;li>xfce-terminal:
+&lt;ul>
+&lt;li>xfce-terminal —fullscreen: 全屏启动&lt;/li>
+&lt;li>xfce-terminal —maximaize: 最大化启动&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Exa ls替代品&lt;/li>
+&lt;li>imagemagick 图片PDF处理&lt;/li>
+&lt;li>poppler-utils: pdf处理
+&lt;ul>
+&lt;li>安装sudo apt-get install poppler-utils&lt;/li>
+&lt;li>pdf转图片 pdftoppm -png ejemplo.pdf imagen&lt;/li>
+&lt;li>pdf合并 pdfunite file1.pdf file2.pdf merged_output.pdf&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Okular pdf编辑器&lt;/li>
+&lt;li>微信 &lt;a class="link" href="https://github.com/loaden/nspawn-qq" target="_blank" rel="noopener"
+>https://github.com/loaden/nspawn-qq&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>[[Hard drive]]&lt;/p>
+&lt;ul>
+&lt;li>Prevent sleep/hibernate/suspend
+&lt;ul>
+&lt;li>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target&lt;/li>
+&lt;li>Undo&lt;/li>
+&lt;li>sudo systemctl unmas sleep.target suspend.target hibernate.target hybrid-sleep.target&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="issues">Issues
+&lt;/h2>&lt;ul>
+&lt;li>Beep声音
+&lt;ul>
+&lt;li>解决方法，添加启动程序，命令xset b off&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>[[Wine - 不好用]]&lt;/p>
+&lt;p>[[sudo]]&lt;/p>
+&lt;p>[[source list]]&lt;/p>
+&lt;p>[[虚拟机复制粘贴]]&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>&lt;a class="link" href="https://wiki.debian.org/SourcesList#Repository_URL" target="_blank" rel="noopener"
+>https://wiki.debian.org/SourcesList#Repository_URL&lt;/a>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">su -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">usermod -aG sudo chun
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>理由：各种问题&lt;/p>
+&lt;ul>
+&lt;li>微信窗口阴影&lt;/li>
+&lt;li>企业微信二维码不显示&lt;/li>
+&lt;li>企业微信无法输入中文&lt;/li>
+&lt;li>腾讯会议完全打不开&lt;/li>
+&lt;/ul>
+&lt;p>黑色背景问题Compton&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.maketecheasier.com/speed-up-linux-desktop-with-compton/" target="_blank" rel="noopener"
+>https://www.maketecheasier.com/speed-up-linux-desktop-with-compton/&lt;/a>&lt;/p>
+&lt;p>企业微信&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install .Net:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">winetricks -q dotnet40
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install open-vm-tools-desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>FOR&lt;/th>
+&lt;th>ACTION&lt;/th>
+&lt;th>SEND&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>⌘ ←&lt;/td>
+&lt;td>&amp;ldquo;SEND HEX CODE&amp;rdquo;&lt;/td>
+&lt;td>0x01&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>⌘ →&lt;/td>
+&lt;td>&amp;ldquo;SEND HEX CODE&amp;rdquo;&lt;/td>
+&lt;td>0x05&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>⌥ ←&lt;/td>
+&lt;td>&amp;ldquo;SEND ESC SEQ&amp;rdquo;&lt;/td>
+&lt;td>b&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>⌥ →&lt;/td>
+&lt;td>&amp;ldquo;SEND ESC SEQ&amp;rdquo;&lt;/td>
+&lt;td>f&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Set Left Option Key: Esc+ for deleting word&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h1 id="plugin-manager">Plugin Manager
+&lt;/h1>&lt;p>&lt;a class="link" href="https://github.com/wbthomason/packer.nvim" target="_blank" rel="noopener"
+>https://github.com/wbthomason/packer.nvim&lt;/a>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>Create a new session&lt;/p>
+&lt;p>Ctrl a + :new&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create a new window&lt;/p>
+&lt;p>Ctrl a + c&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Close a pane&lt;/p>
+&lt;p>Ctrl d&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Switch to last active pane&lt;/p>
+&lt;p>Ctrl a + ;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Vertical split&lt;/p>
+&lt;p>Ctrl a + %&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Horizontal split&lt;/p>
+&lt;p>Ctrl a + &amp;quot;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Rename session&lt;/p>
+&lt;p>Ctrl a + $&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Rename window&lt;/p>
+&lt;p>Ctrl a + ,&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Switch window index&lt;/p>
+&lt;p>: swap-window -s 2 -t 1&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Save windows&lt;/p>
+&lt;p>Ctrl a + s&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Restore windows&lt;/p>
+&lt;p>Ctrl a + r&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reload config&lt;/p>
+&lt;p>:source-file ~/.tmux.conf&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Copy&lt;/p>
+&lt;p>Ctrl a + [; y&lt;/p>
+&lt;h2 id="plugin">Plugin
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/tmux-plugins/tpm" target="_blank" rel="noopener"
+>https://github.com/tmux-plugins/tpm&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>tmux-resurrect&lt;/li>
+&lt;/ul>
+&lt;h2 id="settings">Settings
+&lt;/h2>&lt;ol>
+&lt;li>oh-my-tmux&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a class="link" href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener"
+>https://github.com/gpakosz/.tmux&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>.tmux.conf.local&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install xclip&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">tmux_conf_copy_to_os_clipboard&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>Basic .vimrc&lt;/p>
+&lt;p>Reference &lt;a class="link" href="https://github.com/amix/vimrc" target="_blank" rel="noopener"
+>https://github.com/amix/vimrc&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt"> 10
+&lt;/span>&lt;span class="lnt"> 11
+&lt;/span>&lt;span class="lnt"> 12
+&lt;/span>&lt;span class="lnt"> 13
+&lt;/span>&lt;span class="lnt"> 14
+&lt;/span>&lt;span class="lnt"> 15
+&lt;/span>&lt;span class="lnt"> 16
+&lt;/span>&lt;span class="lnt"> 17
+&lt;/span>&lt;span class="lnt"> 18
+&lt;/span>&lt;span class="lnt"> 19
+&lt;/span>&lt;span class="lnt"> 20
+&lt;/span>&lt;span class="lnt"> 21
+&lt;/span>&lt;span class="lnt"> 22
+&lt;/span>&lt;span class="lnt"> 23
+&lt;/span>&lt;span class="lnt"> 24
+&lt;/span>&lt;span class="lnt"> 25
+&lt;/span>&lt;span class="lnt"> 26
+&lt;/span>&lt;span class="lnt"> 27
+&lt;/span>&lt;span class="lnt"> 28
+&lt;/span>&lt;span class="lnt"> 29
+&lt;/span>&lt;span class="lnt"> 30
+&lt;/span>&lt;span class="lnt"> 31
+&lt;/span>&lt;span class="lnt"> 32
+&lt;/span>&lt;span class="lnt"> 33
+&lt;/span>&lt;span class="lnt"> 34
+&lt;/span>&lt;span class="lnt"> 35
+&lt;/span>&lt;span class="lnt"> 36
+&lt;/span>&lt;span class="lnt"> 37
+&lt;/span>&lt;span class="lnt"> 38
+&lt;/span>&lt;span class="lnt"> 39
+&lt;/span>&lt;span class="lnt"> 40
+&lt;/span>&lt;span class="lnt"> 41
+&lt;/span>&lt;span class="lnt"> 42
+&lt;/span>&lt;span class="lnt"> 43
+&lt;/span>&lt;span class="lnt"> 44
+&lt;/span>&lt;span class="lnt"> 45
+&lt;/span>&lt;span class="lnt"> 46
+&lt;/span>&lt;span class="lnt"> 47
+&lt;/span>&lt;span class="lnt"> 48
+&lt;/span>&lt;span class="lnt"> 49
+&lt;/span>&lt;span class="lnt"> 50
+&lt;/span>&lt;span class="lnt"> 51
+&lt;/span>&lt;span class="lnt"> 52
+&lt;/span>&lt;span class="lnt"> 53
+&lt;/span>&lt;span class="lnt"> 54
+&lt;/span>&lt;span class="lnt"> 55
+&lt;/span>&lt;span class="lnt"> 56
+&lt;/span>&lt;span class="lnt"> 57
+&lt;/span>&lt;span class="lnt"> 58
+&lt;/span>&lt;span class="lnt"> 59
+&lt;/span>&lt;span class="lnt"> 60
+&lt;/span>&lt;span class="lnt"> 61
+&lt;/span>&lt;span class="lnt"> 62
+&lt;/span>&lt;span class="lnt"> 63
+&lt;/span>&lt;span class="lnt"> 64
+&lt;/span>&lt;span class="lnt"> 65
+&lt;/span>&lt;span class="lnt"> 66
+&lt;/span>&lt;span class="lnt"> 67
+&lt;/span>&lt;span class="lnt"> 68
+&lt;/span>&lt;span class="lnt"> 69
+&lt;/span>&lt;span class="lnt"> 70
+&lt;/span>&lt;span class="lnt"> 71
+&lt;/span>&lt;span class="lnt"> 72
+&lt;/span>&lt;span class="lnt"> 73
+&lt;/span>&lt;span class="lnt"> 74
+&lt;/span>&lt;span class="lnt"> 75
+&lt;/span>&lt;span class="lnt"> 76
+&lt;/span>&lt;span class="lnt"> 77
+&lt;/span>&lt;span class="lnt"> 78
+&lt;/span>&lt;span class="lnt"> 79
+&lt;/span>&lt;span class="lnt"> 80
+&lt;/span>&lt;span class="lnt"> 81
+&lt;/span>&lt;span class="lnt"> 82
+&lt;/span>&lt;span class="lnt"> 83
+&lt;/span>&lt;span class="lnt"> 84
+&lt;/span>&lt;span class="lnt"> 85
+&lt;/span>&lt;span class="lnt"> 86
+&lt;/span>&lt;span class="lnt"> 87
+&lt;/span>&lt;span class="lnt"> 88
+&lt;/span>&lt;span class="lnt"> 89
+&lt;/span>&lt;span class="lnt"> 90
+&lt;/span>&lt;span class="lnt"> 91
+&lt;/span>&lt;span class="lnt"> 92
+&lt;/span>&lt;span class="lnt"> 93
+&lt;/span>&lt;span class="lnt"> 94
+&lt;/span>&lt;span class="lnt"> 95
+&lt;/span>&lt;span class="lnt"> 96
+&lt;/span>&lt;span class="lnt"> 97
+&lt;/span>&lt;span class="lnt"> 98
+&lt;/span>&lt;span class="lnt"> 99
+&lt;/span>&lt;span class="lnt">100
+&lt;/span>&lt;span class="lnt">101
+&lt;/span>&lt;span class="lnt">102
+&lt;/span>&lt;span class="lnt">103
+&lt;/span>&lt;span class="lnt">104
+&lt;/span>&lt;span class="lnt">105
+&lt;/span>&lt;span class="lnt">106
+&lt;/span>&lt;span class="lnt">107
+&lt;/span>&lt;span class="lnt">108
+&lt;/span>&lt;span class="lnt">109
+&lt;/span>&lt;span class="lnt">110
+&lt;/span>&lt;span class="lnt">111
+&lt;/span>&lt;span class="lnt">112
+&lt;/span>&lt;span class="lnt">113
+&lt;/span>&lt;span class="lnt">114
+&lt;/span>&lt;span class="lnt">115
+&lt;/span>&lt;span class="lnt">116
+&lt;/span>&lt;span class="lnt">117
+&lt;/span>&lt;span class="lnt">118
+&lt;/span>&lt;span class="lnt">119
+&lt;/span>&lt;span class="lnt">120
+&lt;/span>&lt;span class="lnt">121
+&lt;/span>&lt;span class="lnt">122
+&lt;/span>&lt;span class="lnt">123
+&lt;/span>&lt;span class="lnt">124
+&lt;/span>&lt;span class="lnt">125
+&lt;/span>&lt;span class="lnt">126
+&lt;/span>&lt;span class="lnt">127
+&lt;/span>&lt;span class="lnt">128
+&lt;/span>&lt;span class="lnt">129
+&lt;/span>&lt;span class="lnt">130
+&lt;/span>&lt;span class="lnt">131
+&lt;/span>&lt;span class="lnt">132
+&lt;/span>&lt;span class="lnt">133
+&lt;/span>&lt;span class="lnt">134
+&lt;/span>&lt;span class="lnt">135
+&lt;/span>&lt;span class="lnt">136
+&lt;/span>&lt;span class="lnt">137
+&lt;/span>&lt;span class="lnt">138
+&lt;/span>&lt;span class="lnt">139
+&lt;/span>&lt;span class="lnt">140
+&lt;/span>&lt;span class="lnt">141
+&lt;/span>&lt;span class="lnt">142
+&lt;/span>&lt;span class="lnt">143
+&lt;/span>&lt;span class="lnt">144
+&lt;/span>&lt;span class="lnt">145
+&lt;/span>&lt;span class="lnt">146
+&lt;/span>&lt;span class="lnt">147
+&lt;/span>&lt;span class="lnt">148
+&lt;/span>&lt;span class="lnt">149
+&lt;/span>&lt;span class="lnt">150
+&lt;/span>&lt;span class="lnt">151
+&lt;/span>&lt;span class="lnt">152
+&lt;/span>&lt;span class="lnt">153
+&lt;/span>&lt;span class="lnt">154
+&lt;/span>&lt;span class="lnt">155
+&lt;/span>&lt;span class="lnt">156
+&lt;/span>&lt;span class="lnt">157
+&lt;/span>&lt;span class="lnt">158
+&lt;/span>&lt;span class="lnt">159
+&lt;/span>&lt;span class="lnt">160
+&lt;/span>&lt;span class="lnt">161
+&lt;/span>&lt;span class="lnt">162
+&lt;/span>&lt;span class="lnt">163
+&lt;/span>&lt;span class="lnt">164
+&lt;/span>&lt;span class="lnt">165
+&lt;/span>&lt;span class="lnt">166
+&lt;/span>&lt;span class="lnt">167
+&lt;/span>&lt;span class="lnt">168
+&lt;/span>&lt;span class="lnt">169
+&lt;/span>&lt;span class="lnt">170
+&lt;/span>&lt;span class="lnt">171
+&lt;/span>&lt;span class="lnt">172
+&lt;/span>&lt;span class="lnt">173
+&lt;/span>&lt;span class="lnt">174
+&lt;/span>&lt;span class="lnt">175
+&lt;/span>&lt;span class="lnt">176
+&lt;/span>&lt;span class="lnt">177
+&lt;/span>&lt;span class="lnt">178
+&lt;/span>&lt;span class="lnt">179
+&lt;/span>&lt;span class="lnt">180
+&lt;/span>&lt;span class="lnt">181
+&lt;/span>&lt;span class="lnt">182
+&lt;/span>&lt;span class="lnt">183
+&lt;/span>&lt;span class="lnt">184
+&lt;/span>&lt;span class="lnt">185
+&lt;/span>&lt;span class="lnt">186
+&lt;/span>&lt;span class="lnt">187
+&lt;/span>&lt;span class="lnt">188
+&lt;/span>&lt;span class="lnt">189
+&lt;/span>&lt;span class="lnt">190
+&lt;/span>&lt;span class="lnt">191
+&lt;/span>&lt;span class="lnt">192
+&lt;/span>&lt;span class="lnt">193
+&lt;/span>&lt;span class="lnt">194
+&lt;/span>&lt;span class="lnt">195
+&lt;/span>&lt;span class="lnt">196
+&lt;/span>&lt;span class="lnt">197
+&lt;/span>&lt;span class="lnt">198
+&lt;/span>&lt;span class="lnt">199
+&lt;/span>&lt;span class="lnt">200
+&lt;/span>&lt;span class="lnt">201
+&lt;/span>&lt;span class="lnt">202
+&lt;/span>&lt;span class="lnt">203
+&lt;/span>&lt;span class="lnt">204
+&lt;/span>&lt;span class="lnt">205
+&lt;/span>&lt;span class="lnt">206
+&lt;/span>&lt;span class="lnt">207
+&lt;/span>&lt;span class="lnt">208
+&lt;/span>&lt;span class="lnt">209
+&lt;/span>&lt;span class="lnt">210
+&lt;/span>&lt;span class="lnt">211
+&lt;/span>&lt;span class="lnt">212
+&lt;/span>&lt;span class="lnt">213
+&lt;/span>&lt;span class="lnt">214
+&lt;/span>&lt;span class="lnt">215
+&lt;/span>&lt;span class="lnt">216
+&lt;/span>&lt;span class="lnt">217
+&lt;/span>&lt;span class="lnt">218
+&lt;/span>&lt;span class="lnt">219
+&lt;/span>&lt;span class="lnt">220
+&lt;/span>&lt;span class="lnt">221
+&lt;/span>&lt;span class="lnt">222
+&lt;/span>&lt;span class="lnt">223
+&lt;/span>&lt;span class="lnt">224
+&lt;/span>&lt;span class="lnt">225
+&lt;/span>&lt;span class="lnt">226
+&lt;/span>&lt;span class="lnt">227
+&lt;/span>&lt;span class="lnt">228
+&lt;/span>&lt;span class="lnt">229
+&lt;/span>&lt;span class="lnt">230
+&lt;/span>&lt;span class="lnt">231
+&lt;/span>&lt;span class="lnt">232
+&lt;/span>&lt;span class="lnt">233
+&lt;/span>&lt;span class="lnt">234
+&lt;/span>&lt;span class="lnt">235
+&lt;/span>&lt;span class="lnt">236
+&lt;/span>&lt;span class="lnt">237
+&lt;/span>&lt;span class="lnt">238
+&lt;/span>&lt;span class="lnt">239
+&lt;/span>&lt;span class="lnt">240
+&lt;/span>&lt;span class="lnt">241
+&lt;/span>&lt;span class="lnt">242
+&lt;/span>&lt;span class="lnt">243
+&lt;/span>&lt;span class="lnt">244
+&lt;/span>&lt;span class="lnt">245
+&lt;/span>&lt;span class="lnt">246
+&lt;/span>&lt;span class="lnt">247
+&lt;/span>&lt;span class="lnt">248
+&lt;/span>&lt;span class="lnt">249
+&lt;/span>&lt;span class="lnt">250
+&lt;/span>&lt;span class="lnt">251
+&lt;/span>&lt;span class="lnt">252
+&lt;/span>&lt;span class="lnt">253
+&lt;/span>&lt;span class="lnt">254
+&lt;/span>&lt;span class="lnt">255
+&lt;/span>&lt;span class="lnt">256
+&lt;/span>&lt;span class="lnt">257
+&lt;/span>&lt;span class="lnt">258
+&lt;/span>&lt;span class="lnt">259
+&lt;/span>&lt;span class="lnt">260
+&lt;/span>&lt;span class="lnt">261
+&lt;/span>&lt;span class="lnt">262
+&lt;/span>&lt;span class="lnt">263
+&lt;/span>&lt;span class="lnt">264
+&lt;/span>&lt;span class="lnt">265
+&lt;/span>&lt;span class="lnt">266
+&lt;/span>&lt;span class="lnt">267
+&lt;/span>&lt;span class="lnt">268
+&lt;/span>&lt;span class="lnt">269
+&lt;/span>&lt;span class="lnt">270
+&lt;/span>&lt;span class="lnt">271
+&lt;/span>&lt;span class="lnt">272
+&lt;/span>&lt;span class="lnt">273
+&lt;/span>&lt;span class="lnt">274
+&lt;/span>&lt;span class="lnt">275
+&lt;/span>&lt;span class="lnt">276
+&lt;/span>&lt;span class="lnt">277
+&lt;/span>&lt;span class="lnt">278
+&lt;/span>&lt;span class="lnt">279
+&lt;/span>&lt;span class="lnt">280
+&lt;/span>&lt;span class="lnt">281
+&lt;/span>&lt;span class="lnt">282
+&lt;/span>&lt;span class="lnt">283
+&lt;/span>&lt;span class="lnt">284
+&lt;/span>&lt;span class="lnt">285
+&lt;/span>&lt;span class="lnt">286
+&lt;/span>&lt;span class="lnt">287
+&lt;/span>&lt;span class="lnt">288
+&lt;/span>&lt;span class="lnt">289
+&lt;/span>&lt;span class="lnt">290
+&lt;/span>&lt;span class="lnt">291
+&lt;/span>&lt;span class="lnt">292
+&lt;/span>&lt;span class="lnt">293
+&lt;/span>&lt;span class="lnt">294
+&lt;/span>&lt;span class="lnt">295
+&lt;/span>&lt;span class="lnt">296
+&lt;/span>&lt;span class="lnt">297
+&lt;/span>&lt;span class="lnt">298
+&lt;/span>&lt;span class="lnt">299
+&lt;/span>&lt;span class="lnt">300
+&lt;/span>&lt;span class="lnt">301
+&lt;/span>&lt;span class="lnt">302
+&lt;/span>&lt;span class="lnt">303
+&lt;/span>&lt;span class="lnt">304
+&lt;/span>&lt;span class="lnt">305
+&lt;/span>&lt;span class="lnt">306
+&lt;/span>&lt;span class="lnt">307
+&lt;/span>&lt;span class="lnt">308
+&lt;/span>&lt;span class="lnt">309
+&lt;/span>&lt;span class="lnt">310
+&lt;/span>&lt;span class="lnt">311
+&lt;/span>&lt;span class="lnt">312
+&lt;/span>&lt;span class="lnt">313
+&lt;/span>&lt;span class="lnt">314
+&lt;/span>&lt;span class="lnt">315
+&lt;/span>&lt;span class="lnt">316
+&lt;/span>&lt;span class="lnt">317
+&lt;/span>&lt;span class="lnt">318
+&lt;/span>&lt;span class="lnt">319
+&lt;/span>&lt;span class="lnt">320
+&lt;/span>&lt;span class="lnt">321
+&lt;/span>&lt;span class="lnt">322
+&lt;/span>&lt;span class="lnt">323
+&lt;/span>&lt;span class="lnt">324
+&lt;/span>&lt;span class="lnt">325
+&lt;/span>&lt;span class="lnt">326
+&lt;/span>&lt;span class="lnt">327
+&lt;/span>&lt;span class="lnt">328
+&lt;/span>&lt;span class="lnt">329
+&lt;/span>&lt;span class="lnt">330
+&lt;/span>&lt;span class="lnt">331
+&lt;/span>&lt;span class="lnt">332
+&lt;/span>&lt;span class="lnt">333
+&lt;/span>&lt;span class="lnt">334
+&lt;/span>&lt;span class="lnt">335
+&lt;/span>&lt;span class="lnt">336
+&lt;/span>&lt;span class="lnt">337
+&lt;/span>&lt;span class="lnt">338
+&lt;/span>&lt;span class="lnt">339
+&lt;/span>&lt;span class="lnt">340
+&lt;/span>&lt;span class="lnt">341
+&lt;/span>&lt;span class="lnt">342
+&lt;/span>&lt;span class="lnt">343
+&lt;/span>&lt;span class="lnt">344
+&lt;/span>&lt;span class="lnt">345
+&lt;/span>&lt;span class="lnt">346
+&lt;/span>&lt;span class="lnt">347
+&lt;/span>&lt;span class="lnt">348
+&lt;/span>&lt;span class="lnt">349
+&lt;/span>&lt;span class="lnt">350
+&lt;/span>&lt;span class="lnt">351
+&lt;/span>&lt;span class="lnt">352
+&lt;/span>&lt;span class="lnt">353
+&lt;/span>&lt;span class="lnt">354
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Plain" data-lang="Plain">&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; General
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Sets how many lines of history VIM has to remember
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set history=500
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Enable filetype plugins
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">filetype plugin on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">filetype indent on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Set to auto read when a file is changed from the outside
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set autoread
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">au FocusGained,BufEnter * checktime
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; With a map leader it&amp;#39;s possible to do extra key combinations
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; like &amp;lt;leader&amp;gt;w saves the current file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">let mapleader = &amp;#34;,&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Fast saving
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmap &amp;lt;leader&amp;gt;w :w!&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; :W sudo saves the file
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; (useful for handling the permission-denied error)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">command! W execute &amp;#39;w !sudo tee % &amp;gt; /dev/null&amp;#39; &amp;lt;bar&amp;gt; edit!
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; VIM user interface
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Set 7 lines to the cursor - when moving vertically using j/k
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set so=7
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Avoid garbled characters in Chinese language windows OS
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">let $LANG=&amp;#39;en&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set langmenu=en
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">source $VIMRUNTIME/delmenu.vim
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">source $VIMRUNTIME/menu.vim
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Turn on the Wild menu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set wildmenu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Ignore compiled files
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set wildignore=*.o,*~,*.pyc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if has(&amp;#34;win16&amp;#34;) || has(&amp;#34;win32&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set wildignore+=.git\*,.hg\*,.svn\*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">else
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;Always show current position
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set ruler
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Height of the command bar
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set cmdheight=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; A buffer becomes hidden when it is abandoned
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set hid
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Configure backspace so it acts as it should act
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set backspace=eol,start,indent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set whichwrap+=&amp;lt;,&amp;gt;,h,l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Ignore case when searching
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set ignorecase
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; When searching try to be smart about cases
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set smartcase
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Highlight search results
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set hlsearch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Makes search act like search in modern browsers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set incsearch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Don&amp;#39;t redraw while executing macros (good performance config)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set lazyredraw
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; For regular expressions turn magic on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set magic
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Show matching brackets when text indicator is over them
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set showmatch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; How many tenths of a second to blink when matching brackets
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set mat=2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; No annoying sound on errors
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set noerrorbells
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set novisualbell
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set t_vb=
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set tm=500
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Properly disable sound on errors on MacVim
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if has(&amp;#34;gui_macvim&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> autocmd GUIEnter * set vb t_vb=
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Add a bit extra margin to the left
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set foldcolumn=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Colors and Fonts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Enable syntax highlighting
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">syntax enable
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Enable 256 colors palette in Gnome Terminal
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if $COLORTERM == &amp;#39;gnome-terminal&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set t_Co=256
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">try
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> colorscheme desert
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">catch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endtry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set background=dark
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Set extra options when running in GUI mode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if has(&amp;#34;gui_running&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set guioptions-=T
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set guioptions-=e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set t_Co=256
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set guitablabel=%M\ %t
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Set utf8 as standard encoding and en_US as the standard language
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set encoding=utf8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Use Unix as the standard file type
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set ffs=unix,dos,mac
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Files, backups and undo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Turn backup off, since most stuff is in SVN, git etc. anyway...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set nobackup
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set nowb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set noswapfile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Text, tab and indent related
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Use spaces instead of tabs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set expandtab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Be smart when using tabs ;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set smarttab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; 1 tab == 4 spaces
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set shiftwidth=4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set tabstop=4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Linebreak on 500 characters
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set lbr
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set tw=500
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set ai &amp;#34;Auto indent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set si &amp;#34;Smart indent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set wrap &amp;#34;Wrap lines
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Visual mode related
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Visual mode pressing * or # searches for the current selection
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Super useful! From an idea by Michael Naumann
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vnoremap &amp;lt;silent&amp;gt; * :&amp;lt;C-u&amp;gt;call VisualSelection(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;)&amp;lt;CR&amp;gt;/&amp;lt;C-R&amp;gt;=@/&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vnoremap &amp;lt;silent&amp;gt; # :&amp;lt;C-u&amp;gt;call VisualSelection(&amp;#39;&amp;#39;, &amp;#39;&amp;#39;)&amp;lt;CR&amp;gt;?&amp;lt;C-R&amp;gt;=@/&amp;lt;CR&amp;gt;&amp;lt;CR&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Moving around, tabs, windows and buffers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Map &amp;lt;Space&amp;gt; to / (search) and Ctrl-&amp;lt;Space&amp;gt; to ? (backwards search)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;space&amp;gt; /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;C-space&amp;gt; ?
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Disable highlight when &amp;lt;leader&amp;gt;&amp;lt;cr&amp;gt; is pressed
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;silent&amp;gt; &amp;lt;leader&amp;gt;&amp;lt;cr&amp;gt; :noh&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Smart way to move between windows
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;C-j&amp;gt; &amp;lt;C-W&amp;gt;j
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;C-k&amp;gt; &amp;lt;C-W&amp;gt;k
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;C-h&amp;gt; &amp;lt;C-W&amp;gt;h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;C-l&amp;gt; &amp;lt;C-W&amp;gt;l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Close the current buffer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;bd :Bclose&amp;lt;cr&amp;gt;:tabclose&amp;lt;cr&amp;gt;gT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Close all the buffers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;ba :bufdo bd&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;l :bnext&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;h :bprevious&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Useful mappings for managing tabs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;tn :tabnew&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;to :tabonly&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;tc :tabclose&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;tm :tabmove
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;t&amp;lt;leader&amp;gt; :tabnext
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Let &amp;#39;tl&amp;#39; toggle between this and the last accessed tab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">let g:lasttab = 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmap &amp;lt;Leader&amp;gt;tl :exe &amp;#34;tabn &amp;#34;.g:lasttab&amp;lt;CR&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">au TabLeave * let g:lasttab = tabpagenr()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Opens a new tab with the current buffer&amp;#39;s path
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Super useful when editing files in the same directory
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;te :tabedit &amp;lt;C-r&amp;gt;=expand(&amp;#34;%:p:h&amp;#34;)&amp;lt;cr&amp;gt;/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Switch CWD to the directory of the open buffer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;cd :cd %:p:h&amp;lt;cr&amp;gt;:pwd&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Specify the behavior when switching between buffers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">try
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set switchbuf=useopen,usetab,newtab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> set stal=2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">catch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endtry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Return to last edit position when opening files (You want this!)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">au BufReadPost * if line(&amp;#34;&amp;#39;\&amp;#34;&amp;#34;) &amp;gt; 1 &amp;amp;&amp;amp; line(&amp;#34;&amp;#39;\&amp;#34;&amp;#34;) &amp;lt;= line(&amp;#34;$&amp;#34;) | exe &amp;#34;normal! g&amp;#39;\&amp;#34;&amp;#34; | endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Status line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Always show the status line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set laststatus=2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Format the status line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Editing mappings
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Remap VIM 0 to first non-blank character
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map 0 ^
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Move a line of text using ALT+[jk] or Command+[jk] on mac
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmap &amp;lt;M-j&amp;gt; mz:m+&amp;lt;cr&amp;gt;`z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nmap &amp;lt;M-k&amp;gt; mz:m-2&amp;lt;cr&amp;gt;`z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vmap &amp;lt;M-j&amp;gt; :m&amp;#39;&amp;gt;+&amp;lt;cr&amp;gt;`&amp;lt;my`&amp;gt;mzgv`yo`z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vmap &amp;lt;M-k&amp;gt; :m&amp;#39;&amp;lt;-2&amp;lt;cr&amp;gt;`&amp;gt;my`&amp;lt;mzgv`yo`z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if has(&amp;#34;mac&amp;#34;) || has(&amp;#34;macunix&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> nmap &amp;lt;D-j&amp;gt; &amp;lt;M-j&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> nmap &amp;lt;D-k&amp;gt; &amp;lt;M-k&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> vmap &amp;lt;D-j&amp;gt; &amp;lt;M-j&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> vmap &amp;lt;D-k&amp;gt; &amp;lt;M-k&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Delete trailing white space on save, useful for some filetypes ;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">fun! CleanExtraSpaces()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let save_cursor = getpos(&amp;#34;.&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let old_query = getreg(&amp;#39;/&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> silent! %s/\s\+$//e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> call setpos(&amp;#39;.&amp;#39;, save_cursor)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> call setreg(&amp;#39;/&amp;#39;, old_query)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endfun
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">if has(&amp;#34;autocmd&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Spell checking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Pressing ,ss will toggle and untoggle spell checking
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;ss :setlocal spell!&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Shortcuts using &amp;lt;leader&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;sn ]s
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;sp [s
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;sa zg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;s? z=
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Misc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Remove the Windows ^M - when the encodings gets messed up
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">noremap &amp;lt;Leader&amp;gt;m mmHmt:%s/&amp;lt;C-V&amp;gt;&amp;lt;cr&amp;gt;//ge&amp;lt;cr&amp;gt;&amp;#39;tzt&amp;#39;m
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Quickly open a buffer for scribble
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;q :e ~/buffer&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Quickly open a markdown buffer for scribble
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;x :e ~/buffer.md&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Toggle paste mode on and off
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">map &amp;lt;leader&amp;gt;pp :setlocal paste!&amp;lt;cr&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; =&amp;gt; Helper functions
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Returns true if paste mode is enabled
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">function! HasPaste()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if &amp;amp;paste
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return &amp;#39;PASTE MODE &amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> return &amp;#39;&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endfunction
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;#34; Don&amp;#39;t close window, when deleting a buffer
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">command! Bclose call &amp;lt;SID&amp;gt;BufcloseCloseIt()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">function! &amp;lt;SID&amp;gt;BufcloseCloseIt()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let l:currentBufNum = bufnr(&amp;#34;%&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let l:alternateBufNum = bufnr(&amp;#34;#&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if buflisted(l:alternateBufNum)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> buffer #
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> else
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> bnext
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if bufnr(&amp;#34;%&amp;#34;) == l:currentBufNum
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> new
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if buflisted(l:currentBufNum)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> execute(&amp;#34;bdelete! &amp;#34;.l:currentBufNum)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endfunction
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">function! CmdLine(str)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> call feedkeys(&amp;#34;:&amp;#34; . a:str)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endfunction
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">function! VisualSelection(direction, extra_filter) range
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let l:saved_reg = @&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> execute &amp;#34;normal! vgvy&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let l:pattern = escape(@&amp;#34;, &amp;#34;\\/.*&amp;#39;$^~[]&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let l:pattern = substitute(l:pattern, &amp;#34;\n$&amp;#34;, &amp;#34;&amp;#34;, &amp;#34;&amp;#34;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> if a:direction == &amp;#39;gv&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> call CmdLine(&amp;#34;Ack &amp;#39;&amp;#34; . l:pattern . &amp;#34;&amp;#39; &amp;#34; )
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> elseif a:direction == &amp;#39;replace&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> call CmdLine(&amp;#34;%s&amp;#34; . &amp;#39;/&amp;#39;. l:pattern . &amp;#39;/&amp;#39;)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> endif
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let @/ = l:pattern
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> let @&amp;#34; = l:saved_reg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">endfunction
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Practice&lt;/p>
+&lt;p>&lt;a class="link" href="https://vimvalley.com/" target="_blank" rel="noopener"
+>https://vimvalley.com/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Plugin&lt;/p>
+&lt;ul>
+&lt;li>Surround
+&lt;ul>
+&lt;li>viwS&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>.ideavimrc&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-Bash" data-lang="Bash">&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34; Bells --------------------------------
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">set visualbell
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">set noerrorbells
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;&amp;#34;&amp;#34;&lt;/span> Plugins --------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">set&lt;/span> multiple-cursors
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h3 id="slow-startup-with-slow-network">Slow startup with slow network
+&lt;/h3>&lt;p>&lt;code>DISABLE_AUTO_UPDATE=&amp;quot;true&amp;quot;&lt;/code> before the &lt;code>source $ZSH/oh-my-zsh.sh&lt;/code>&lt;/p>
+&lt;p>Plugin&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>npm&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>copydir&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copydir" target="_blank" rel="noopener"
+>https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copydir&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h1 id="openvpn">OpenVPN
+&lt;/h1>&lt;p>很方便&lt;/p>
+&lt;p>OpenVPN + WebSocket + Nginx（监听 443）&lt;/p>
+&lt;p>生成客户端&lt;/p>
+&lt;p>docker run -v $PWD/openvpn:/etc/openvpn &amp;ndash;rm kylemanna/openvpn ovpn_genconfig -u tcp://域名&lt;br>
+docker run -v $PWD/openvpn:/etc/openvpn &amp;ndash;rm -it kylemanna/openvpn ovpn_initpki&lt;/p>
+&lt;h1 id="wireguard">Wireguard
+&lt;/h1>&lt;p>只支持UDP&lt;/p>
+&lt;p>访问国内非常不稳定&lt;/p>
+&lt;h1 id="ipsec-有点老">ipsec 有点老
+&lt;/h1>&lt;p>&lt;a class="link" href="https://github.com/hwdsl2/docker-ipsec-vpn-server" target="_blank" rel="noopener"
+>https://github.com/hwdsl2/docker-ipsec-vpn-server&lt;/a>&lt;/p>
+&lt;p>Change &lt;code>-v ikev2-vpn-data:/etc/ipsec.d \&lt;/code>&lt;/p>
+&lt;p>to &lt;code>-v /path/to/ipsec.d:/etc/ipsec.d \&lt;/code>&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-JSON" data-lang="JSON">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;commandline&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;C:/Users/CHFA/app/msys64/msys2_shell.cmd -defterm -here -no-start -use-full-path -mingw64&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;guid&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;{17da3cac-b318-431e-8a3e-7fcdefe6d114}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;icon&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;C:/Users/CHFA/app/msys64/mingw64.ico&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;MINGW64 / MSYS2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;startingDirectory&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;C:/Users/%USERNAME%/dev&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;cursorShape&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;filledBox&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;cursorColor&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;\#0097A7&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;font&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;face&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;JetBrains Mono&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;fontSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;fontWeight&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;bold&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>BandiZip&lt;/p>
+&lt;p>[[Windows Terminal]]&lt;/p>
+&lt;h1 id="trafficmonitor">TrafficMonitor
+&lt;/h1>&lt;p>Used for widget&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>&lt;a class="link" href="https://github.com/ElvisTan/books-1" target="_blank" rel="noopener"
+>https://github.com/ElvisTan/books-1&lt;/a>&lt;/p>
+&lt;p>The art of communicating&lt;/p>
+&lt;p>Eat That Frog&lt;/p>
+&lt;p>The 7 habits&lt;/p>
+&lt;p>Radical Candor&lt;/p></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>Plugins&lt;/p>
+&lt;ul>
+&lt;li>Atom Material Icons&lt;/li>
+&lt;li>CodeGlance&lt;/li>
+&lt;li>Grep Console&lt;/li>
+&lt;li>IdeaVim&lt;/li>
+&lt;li>IdeaVimExtension&lt;/li>
+&lt;li>JS GraphQL&lt;/li>
+&lt;li>Kotlin&lt;/li>
+&lt;li>Material Theme UI&lt;/li>
+&lt;li>One Dark Theme&lt;/li>
+&lt;li>JPA Buddy&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>Lucid Chart&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Figma&lt;/p>
+&lt;p>Figma是一个矢量图形编辑器和原型工具&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>htop&lt;/p>
+&lt;p>htop是一个交互式系统监视、进程查看和进程管理器&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>[[Intellij]]&lt;/p>
+&lt;ul>
+&lt;li>绿联硬盘盒CM335，刷固件取消休眠
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://dxp4800-6396.cn22.ug.link/filemgr/share-download/?id=29c86c88948c48538323dd76292e94b5" target="_blank" rel="noopener"
+>https://dxp4800-6396.cn22.ug.link/filemgr/share-download/?id=29c86c88948c48538323dd76292e94b5&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>键盘手指练习
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.typingclub.com/" target="_blank" rel="noopener"
+>https://www.typingclub.com/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>五笔练习
+&lt;ul>
+&lt;li>八哥五笔练习&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>Nginx proxy manager&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/NginxProxyManager/nginx-proxy-manager" target="_blank" rel="noopener"
+>https://github.com/NginxProxyManager/nginx-proxy-manager&lt;/a>&lt;/p>
+&lt;p>Port 80 need to be enabled to setup SSL/TSL certificates&lt;/p>
+&lt;p>Web ssh&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/butlerx/wetty" target="_blank" rel="noopener"
+>https://github.com/butlerx/wetty&lt;/a>&lt;/p>
+&lt;p>NextCloud:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Permission error: chown -R chun:chun {path-to-data}&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Watch files changes on the disk and reflect to nextcloud&lt;/p>
+&lt;p>nextcloud/config/config.php&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-PHP" data-lang="PHP">&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;filesystem_check_changes&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Not able to delete file&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-PHP" data-lang="PHP">&lt;span class="line">&lt;span class="cl">&lt;span class="s1">&amp;#39;filelocking.enabled&amp;#39;&lt;/span> &lt;span class="o">=&amp;gt;&lt;/span> &lt;span class="k">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>前端项目性能优化
+&lt;ul>
+&lt;li>避免加载大型文件&lt;/li>
+&lt;li>避免大型库的使用（如jsPDF）&lt;/li>
+&lt;li>尽量使用TreeShaking机制优化打包代码&lt;/li>
+&lt;li>Gatsby→ CSR vs SSR&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>API项目性能优化
+&lt;ul>
+&lt;li>JPA N+1 problem&lt;/li>
+&lt;li>API端和数据库使用本地IP地址访问&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>反向代理服务器配置优化
+&lt;ul>
+&lt;li>GZip&lt;/li>
+&lt;li>Buffer off&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;ul>
+&lt;li>书籍
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://deerchao.cn/tutorials/regex/regex.htm" target="_blank" rel="noopener"
+>https://deerchao.cn/tutorials/regex/regex.htm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>变量命名，在适当的时候添加统一的前缀或者后缀&lt;/p>
+&lt;p>camelCase&lt;/p>
+&lt;ul>
+&lt;li>js项目文件命名&lt;/li>
+&lt;li>js项目变量命名&lt;/li>
+&lt;/ul>
+&lt;p>PacalCase&lt;/p>
+&lt;ul>
+&lt;li>js项目Type命名&lt;/li>
+&lt;li>js项目组件命名&lt;/li>
+&lt;/ul>
+&lt;p>snake_case&lt;/p>
+&lt;ul>
+&lt;li>python/c/c++/rust/bash/自动化流水线等项目配置文件&lt;/li>
+&lt;li>python/c/c++/rust/bash项目文件命名&lt;/li>
+&lt;li>python/c/c++/rust/bash项目变量命名&lt;/li>
+&lt;/ul>
+&lt;p>SCREAMING_SNAKE_CASE&lt;/p>
+&lt;ul>
+&lt;li>常量&lt;/li>
+&lt;/ul>
+&lt;p>kebab-case&lt;/p>
+&lt;ul>
+&lt;li>js项目命名&lt;/li>
+&lt;li>js项目文件命名&lt;/li>
+&lt;li>js脚本命名&lt;/li>
+&lt;li>js项目的配置文件命名&lt;/li>
+&lt;li>js项目插件命名&lt;/li>
+&lt;/ul></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;h3 id="进程与线程的概念以及为什么要有进程线程其中有什么区别">进程与线程的概念，以及为什么要有进程线程，其中有什么区别?
+&lt;/h3>&lt;h3 id="1-基本概念">1. 基本概念：
+&lt;/h3>&lt;p>进程是对运行时程序的封装，是&lt;strong>系统进行资源调度和分配的的基本单位，实现了操作系统的并发&lt;/strong>；&lt;/p>
+&lt;p>线程是进程的子任务，&lt;strong>是CPU调度和分派的基本单位&lt;/strong>，&lt;strong>用于保证程序的实时性，实现进程内部的并发；线程是操作系统可识别的最小执行和调度单位&lt;/strong>。每个线程都独自占用一个&lt;strong>虚拟处理器&lt;/strong>：独自的&lt;strong>寄存器组&lt;/strong>，&lt;strong>指令计数器和处理器状态&lt;/strong>。每个线程完成不同的任务，但是&lt;strong>共享同一地址空间&lt;/strong>（也就是同样的&lt;strong>动态内存，映射文件，目标代码等等&lt;/strong>），&lt;strong>打开的文件队列和其他内核资源&lt;/strong>。&lt;/p>
+&lt;h3 id="2-区别">2. 区别：
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>一个线程只能属于一个进程，而一个进程可以有多个线程&lt;/strong>，但至少有一个线程。线程依赖于进程而存在。&lt;/li>
+&lt;li>&lt;strong>进程在执行过程中拥有独立的内存单元，而多个线程共享进程的内存&lt;/strong>。（资源分配给进程，同一进程的所有线程共享该进程的所有资源。同一进程中的多个线程共享代码段（代码和常量），数据段（全局变量和静态变量），扩展段（堆存储）。但是每个线程拥有自己的栈段，栈段又叫运行时段，用来存放所有局部变量和临时变量。）&lt;/li>
+&lt;li>&lt;strong>进程是资源分配的最小单位，线程是CPU调度的最小单位&lt;/strong>；&lt;/li>
+&lt;li>系统开销： 由于在创建或撤消进程时，系统都要为之分配或回收资源，如内存空间、I／o设备等。因此，操作系统所付出的开销将显著地大于在创建或撤消线程时的开销。类似地，在进行进程切换时，涉及到整个当前进程CPU环境的保存以及新被调度运行的进程的CPU环境的设置。而线程切换只须保存和设置少量寄存器的内容，并不涉及存储器管理方面的操作。可见，&lt;strong>进程切换的开销也远大于线程切换的开销&lt;/strong>。&lt;/li>
+&lt;li>通信：由于同一进程中的多个线程具有相同的地址空间，致使它们之间的同步和通信的实现，也变得比较容易。&lt;strong>进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性&lt;/strong>。在有的系统中，线程的切换、同步和通信都无须操作系统内核的干预&lt;/li>
+&lt;li>&lt;strong>进程编程调试简单可靠性高，但是创建销毁开销大；线程正相反，开销小，切换速度快，但是编程调试相对复杂&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>进程间不会相互影响 ；线程一个线程挂掉将导致整个进程挂掉&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>进程适应于多核、多机分布；线程适用于多核&lt;/strong>&lt;/li>
+&lt;/ol></description></item><item><title>Webpack</title><link>https://chun.no/p/webpack/</link><pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/webpack/</guid><description>&lt;p>自动更新&lt;/p>
+&lt;p>$ sudo certbot certonly &amp;ndash;manual -d &lt;a class="link" href="http://fintegrity.cn/" target="_blank" rel="noopener"
+>fintegrity.cn&lt;/a> -m &amp;ldquo;&lt;a class="link" href="mailto:admin@fintegrity.cn" >admin@fintegrity.cn&lt;/a>&amp;rdquo;&lt;/p>
+&lt;p>$ sudo nginx -s reload&lt;/p></description></item><item><title>Code Convention</title><link>https://chun.no/p/code-convention/</link><pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate><guid>https://chun.no/p/code-convention/</guid><description>&lt;p>&lt;a class="link" href="https://github.com/airbnb/javascript" target="_blank" rel="noopener"
+>https://github.com/airbnb/javascript&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/libertyAlone/airbnb-javascript-style-guide-cn" target="_blank" rel="noopener"
+>https://github.com/libertyAlone/airbnb-javascript-style-guide-cn&lt;/a>&lt;/p></description></item></channel></rss>
