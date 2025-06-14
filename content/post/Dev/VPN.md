@@ -4,7 +4,7 @@ description: Notes for code Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
 ---
@@ -17,12 +17,12 @@ OpenVPN + WebSocket + Nginx（监听 443）
 
 生成客户端
 
-docker run -v $PWD/openvpn:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u tcp://域名  
-docker run -v $PWD/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki  
+docker run -v $PWD/openvpn:/etc/openvpn --rm kylemanna/openvpn ovpn_genconfig -u tcp://域名
+docker run -v $PWD/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
 
 # Wireguard
 
-只支持UDP
+只支持 UDP
 
 访问国内非常不稳定
 

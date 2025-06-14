@@ -4,32 +4,30 @@ description: Notes for code Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
 ---
 
-# 1. ECMAScript 6简介
+# 1. ECMAScript 6 简介
 
-ECMAScript是标准
+ECMAScript 是标准
 
-JavaScript是实现
+JavaScript 是实现
 
-Babel是转码器，a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
+Babel 是转码器，a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
 
 - 默认只转句法（syntax）
-- 不转API
-- 转API需要用core-js和regenrator-runtime
+- 不转 API
+- 转 API 需要用 core-js 和 regenrator-runtime
 
-  
+# 2. let 和 const 命令
 
-# 2. let和const命令
+var 全局声明
 
-var全局声明
+let 块级作用于声明
 
-let块级作用于声明
-
-es6有6种声明变量方法：var，function，let，const，import和class
+es6 有 6 种声明变量方法：var，function，let，const，import 和 class
 
 顶层对象
 
@@ -43,9 +41,7 @@ this
 - 函数里面的`this`，如果函数不是作为对象的方法运行，而是单纯作为函数运行，`this`会指向顶层对象。但是，严格模式下，这时`this`会返回`undefined`。
 - 不管是严格模式，还是普通模式，`new Function('return this')()`，总是会返回全局对象。但是，如果浏览器用了 CSP（Content Security Policy，内容安全策略），那么`eval`、`new Function`这些方法都可能无法使用。
 
-ES2020引入globalThis解决以上问题
-
-  
+ES2020 引入 globalThis 解决以上问题
 
 # 3. 变量的解构赋值
 
@@ -60,16 +56,12 @@ ES2020引入globalThis解决以上问题
 - 交换变量的值
 - 从函数返回多个值
 - 函数参数的定义
-- 提取JSON数据
+- 提取 JSON 数据
 - 函数参数的默认值
-- 遍历Map结构
+- 遍历 Map 结构
 - 输入模块的指定方法
 
-  
-
 # 4. 字符串的扩展
-
-  
 
 # 5. 字符串的新增方法
 
@@ -84,8 +76,6 @@ ES2020引入globalThis解决以上问题
 - matchAll()
 - replaceAll()
 
-  
-
 # 6. 正则的扩展
 
 构造函数，第二个参数为修饰符（flag），会替换原有的修饰符
@@ -97,33 +87,31 @@ ES2020引入globalThis解决以上问题
 - search()
 - split()
 
-u修饰符 不懂
+u 修饰符 不懂
 
-y修饰符类似g修饰符但是不同
+y 修饰符类似 g 修饰符但是不同
 
-flags属性返回正则表达式的修饰符
+flags 属性返回正则表达式的修饰符
 
 ...
 
 需要继续研读此章节
 
-  
-
 # 7. 数值的扩展
 
-二进制和八进制的表示方法0b, 0o
+二进制和八进制的表示方法 0b, 0o
 
-Number.isFinite(), Number.isNaN() 只对数值有效，与全局isFinite(), isNan()不同，全局会先调用Number把非数值转换为数值
+Number.isFinite(), Number.isNaN() 只对数值有效，与全局 isFinite(), isNan()不同，全局会先调用 Number 把非数值转换为数值
 
-Number.parseInt(), Number.parseFloat()移植到Number对象
+Number.parseInt(), Number.parseFloat()移植到 Number 对象
 
-Number.isInteger()，JavaScript采用64位双精度格式存储数值，数值超过53个二进制位可能会误判
+Number.isInteger()，JavaScript 采用 64 位双精度格式存储数值，数值超过 53 个二进制位可能会误判
 
-Number.EPSILON极小常量
+Number.EPSILON 极小常量
 
 Number.isSafeInteger()
 
-Math方法
+Math 方法
 
 ...
 

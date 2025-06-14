@@ -4,82 +4,78 @@ description: Notes for code Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
----  
+---
 
 - Create a new session
-    
-    Ctrl a + :new
-    
+
+  Ctrl a + :new
+
 - Create a new window
-    
-    Ctrl a + c
-    
+
+  Ctrl a + c
+
 - Close a pane
-    
-    Ctrl d
-    
+
+  Ctrl d
+
 - Switch to last active pane
-    
-    Ctrl a + ;
-    
+
+  Ctrl a + ;
+
 - Vertical split
-    
-    Ctrl a + %
-    
+
+  Ctrl a + %
+
 - Horizontal split
-    
-    Ctrl a + "
-    
+
+  Ctrl a + "
+
 - Rename session
-    
-    Ctrl a + $
-    
+
+  Ctrl a + $
+
 - Rename window
-    
-    Ctrl a + ,
-    
+
+  Ctrl a + ,
+
 - Switch window index
-    
-    : swap-window -s 2 -t 1
-    
+
+  : swap-window -s 2 -t 1
+
 - Save windows
-    
-    Ctrl a + s
-    
+
+  Ctrl a + s
+
 - Restore windows
-    
-    Ctrl a + r
-    
+
+  Ctrl a + r
+
 - Reload config
-    
-    :source-file ~/.tmux.conf
-    
+
+  :source-file ~/.tmux.conf
+
 - Copy
-    
-    Ctrl a + [; y
-    
-      
-    
-    ## Plugin
-    
-    https://github.com/tmux-plugins/tpm
-    
-    - tmux-resurrect
-    
-      
-    
-    ## Settings
-    
-    1. oh-my-tmux
-    
-    https://github.com/gpakosz/.tmux
-    
-    1. .tmux.conf.local
-    
-    ```Bash
-    # Install xclip
-    tmux_conf_copy_to_os_clipboard=true
-    ```
+
+  Ctrl a + [; y
+
+  ## Plugin
+
+  https://github.com/tmux-plugins/tpm
+
+  - tmux-resurrect
+
+  ## Settings
+
+  1. oh-my-tmux
+
+  https://github.com/gpakosz/.tmux
+
+  1. .tmux.conf.local
+
+  ```Bash
+  # Install xclip
+  tmux_conf_copy_to_os_clipboard=true
+  ```

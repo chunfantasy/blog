@@ -4,7 +4,7 @@ description: Notes for code Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
 ---
@@ -18,7 +18,7 @@ tags:
     "startingDirectory": "C:/Users/%USERNAME%/dev",
     "cursorShape": "filledBox",
     "cursorColor": "\#0097A7",
-    "font": 
+    "font":
     {
         "face": "JetBrains Mono",
         "fontSize": 12,

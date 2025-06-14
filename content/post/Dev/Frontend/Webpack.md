@@ -4,7 +4,7 @@ description: Notes for Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
 ---

@@ -4,14 +4,13 @@ description: Notes for code Webpack
 slug: webpack
 date: 2018-05-01
 categories:
-  - Development Category
+  - Development
 tags:
   - Development
 ---
 
-Show hardrive  
-  
-  
+Show hardrive
+
 `lsblk -o name,mountpoint,label,size,uuid`
 
 Edit mount rules

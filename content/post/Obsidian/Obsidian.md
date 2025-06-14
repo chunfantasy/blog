@@ -4,9 +4,10 @@ description: How to use Obsidian
 slug: reading-notes
 date: 2020-01-01
 categories:
-    - Reading Category
-tags: 
-    - reading
+  - Reading
+tags:
+  - Obsidian
+  - Reading
 ---
 
 # Themes

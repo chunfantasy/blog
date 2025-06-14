@@ -4,9 +4,9 @@ description: This is a note for Database
 slug: database
 date: 2020-01-01
 categories:
-    - Development Category
-tags: 
-    - Database
+  - Development
+tags:
+  - Database
 ---
 
 # DBeaver
@@ -20,4 +20,3 @@ sudo docker run \
   -v /home/chun/dev/cloudbeaver/workspace:/opt/cloudbeaver/workspace \
   dbeaver/cloudbeaver:latest
 ```
-
