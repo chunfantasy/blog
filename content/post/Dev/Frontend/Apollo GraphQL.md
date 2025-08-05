@@ -1,7 +1,7 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Apollo GraphQL
+description: Notes for GraphQL
+slug: apollo-graphql
 date: 2018-05-01
 categories:
   - Development
@@ -15,7 +15,7 @@ tags:
 Missing field 'verifier' while writing result
 ```
 
-## Solution:
+**Solution:**
 
 ```Bash
 fetchPolicy: 'no-cache'

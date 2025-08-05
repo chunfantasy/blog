@@ -11,6 +11,8 @@ tags:
 
 # DBeaver
 
+Dbeaver is a database administrator. Use the following script to start it up via docker.
+
 ```Bash
 sudo docker run \
   --name cloudbeaver \

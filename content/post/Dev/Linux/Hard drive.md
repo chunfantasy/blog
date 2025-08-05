@@ -9,18 +9,26 @@ tags:
   - Development
 ---
 
-Show hardrive
+## Show disk
 
 `lsblk -o name,mountpoint,label,size,uuid`
 
-Edit mount rules
+## Edit mount rules
 
 `vim /etc/fstab`
 
-Mount
+## Mount
 
 `mount -a`
 
-Copy with progress bar
+## Checking folder size
+
+```shell
+# h for human readable
+# s for summary
+du -hs
+```
+
+## Copy with progress bar
 
 `rsync -ah --info=progress2 [source] [destination]`

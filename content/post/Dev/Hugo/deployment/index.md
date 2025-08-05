@@ -16,8 +16,7 @@ tags:
   - DevOps
 ---
 
-
-## Deployment
+##Deployment
 ### Problems
 
 After having committed my blog to main branch, it does not deploy automatically.

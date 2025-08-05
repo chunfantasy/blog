@@ -1,6 +1,6 @@
 ---
-title: Webpack
-description: Notes for code Webpack
+title: ECMAScript 6 入门
+description: Notes for ECMAScript 6
 slug: webpack
 date: 2018-05-01
 categories:
