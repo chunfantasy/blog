@@ -7,6 +7,8 @@ categories:
   - Development
 tags:
   - Development
+  - Frontend
+  - JavaScript
 ---
 
 ## Problems

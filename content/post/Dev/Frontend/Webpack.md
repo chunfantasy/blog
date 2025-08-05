@@ -7,6 +7,8 @@ categories:
   - Development
 tags:
   - Development
+  - Frontend
+  - JavaScript
 ---
 
 [https://cloud.tencent.com/developer/article/1756929](https://cloud.tencent.com/developer/article/1756929)

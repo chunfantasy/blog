@@ -1,12 +1,14 @@
 ---
 title: Gatsby
 description: Notes for Gatsby
-slug: webpack
+slug: gatsby
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Frontend
+  - JavaScript
 ---
 
 Environment variables need to start with GATSBY\_\*

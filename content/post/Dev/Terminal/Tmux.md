@@ -1,14 +1,15 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Tmux
+description: Notes for using Tmux
+slug: tmux
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Terminal
 ---
-
+## Basic
 - Create a new session
 
   Ctrl a + :new

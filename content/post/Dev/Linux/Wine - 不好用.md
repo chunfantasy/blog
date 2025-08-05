@@ -1,12 +1,14 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Wine
+description: Notes for using Wine on Linux
+slug: linux-wine
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Linux
+  - Debian
 ---
 
 理由：各种问题

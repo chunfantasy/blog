@@ -1,15 +1,15 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
-date: 2018-05-01
+title: Intellij
+description: Notes for using Intellij
+slug: intellij
+date: 2014-01-01
 categories:
   - Development
 tags:
   - Development
 ---
 
-Plugins
+## Plugins
 
 - Atom Material Icons
 - CodeGlance

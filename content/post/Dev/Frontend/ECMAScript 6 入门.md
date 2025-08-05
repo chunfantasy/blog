@@ -1,12 +1,14 @@
 ---
 title: ECMAScript 6 入门
 description: Notes for ECMAScript 6
-slug: webpack
+slug: ecmascript
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Frontend
+  - JavaScript
 ---
 
 # 1. ECMAScript 6 简介

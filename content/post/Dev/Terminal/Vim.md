@@ -1,15 +1,16 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Vim
+description: Notes for using Vim
+slug: vim
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Terminal
 ---
 
-- Basic .vimrc
+## Basic .vimrc
 
   Reference [https://github.com/amix/vimrc](https://github.com/amix/vimrc)
 
@@ -370,14 +371,14 @@ tags:
   endfunction
   ```
 
-- Practice
+## Practice
 
   [https://vimvalley.com/](https://vimvalley.com/)
 
-- Plugin
+## Plugin
   - Surround
     - viwS
-- .ideavimrc
+## .ideavimrc
 
   ```Bash
   """ Bells  --------------------------------

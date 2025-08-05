@@ -7,21 +7,22 @@ categories:
   - Development
 tags:
   - Development
+  - HomeServer
 ---
 
 
-## Open VPN
+## OpenVPN
 
 ### Problems
 ```bash
 Transport Error: socket_protect error (UDP)
 Client terminate, restarting in 2000 ms...
 ```
-### Solution 1 for once
+### Solution 1 for one-time fix
 ```bash
 sudo /Library/Frameworks/OpenVPNConnect.framework/Versions/Current/usr/sbin/ovpnagent
 ```
-### Solution 2 for persistency after reboot
+### Solution 2 for persistency fix after reboot
 ```bash
 sudo launchctl load -w /Library/LaunchDaemons/org.openvpn.client.plist
 ```

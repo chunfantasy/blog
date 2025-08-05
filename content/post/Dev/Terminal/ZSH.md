@@ -1,12 +1,13 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Zsh
+description: Notes for using ZSH
+slug: zsh
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Terminal
 ---
 
 ### Slow startup with slow network

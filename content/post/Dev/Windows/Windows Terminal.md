@@ -1,13 +1,15 @@
 ---
-title: Webpack
-description: Notes for code Webpack
-slug: webpack
+title: Windows Terminal
+description: Notes for using Windows Terminal
+slug: windows-terminal
 date: 2018-05-01
 categories:
   - Development
 tags:
   - Development
+  - Windows
 ---
+## Basic Configuration
 
 ```JSON
 {
