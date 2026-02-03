@@ -24,11 +24,15 @@ tags:
 `mount -a`
 
 ## Checking folder size
-
 ```shell
 # h for human readable
 # s for summary
 du -hs
+```
+
+## Checking folder size
+```bash
+df -h
 ```
 
 ## Copy with progress bar

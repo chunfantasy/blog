@@ -9,6 +9,8 @@ tags:
   - Development
 ---
 
+## iTerm2
+
 | FOR | ACTION          | SEND |
 | --- | --------------- | ---- |
 | ⌘ ← | "SEND HEX CODE" | 0x01 |
@@ -17,3 +19,5 @@ tags:
 | ⌥ → | "SEND ESC SEQ"  | f    |
 
 Set Left Option Key: Esc+ for deleting word
+
+## ls alternative
