@@ -9,8 +9,6 @@ categories:
 tags:
   - Cooking
 ---
-![辣呛糖醋鱼配方](cooking-chili-sweet-sour-fish.jpg)
-
 ## 配方
 | 材料  | 重量  |
 | --- | --- |
