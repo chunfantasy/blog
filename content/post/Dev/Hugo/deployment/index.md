@@ -1,7 +1,7 @@
 ---
 title: Hugo Deployment
 description: How to deploy my blog to GitHub page?
-slug: hugo-deploymen
+slug: hugo-deployment
 date: 2025-06-14
 image: cover.png
 categories:

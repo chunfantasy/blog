@@ -1,7 +1,7 @@
 ---
 title: Embedded Systems Architecture
 description: "Embedded Systems Architecture: A Comprehensive Design Guide"
-slug: reading-notes-embedded-systems-architecture
+slug: embedded-systems-architecture
 date: 2025-12-01
 categories:
   - Reading
