@@ -9,7 +9,6 @@ categories:
 tags:
   - Hugo
   - GitHub
-  - GitHub
   - Actions
   - Deployment
   - CI/CD
