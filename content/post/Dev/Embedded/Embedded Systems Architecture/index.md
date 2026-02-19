@@ -146,7 +146,7 @@ tags:
 	- IC
 		- Integrated circuit (集成电路)
 
-- **Embedded Processors
+- **Embedded Processors**
 
 - **Board Memory**
 
