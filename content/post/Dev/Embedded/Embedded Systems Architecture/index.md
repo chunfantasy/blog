@@ -4,10 +4,13 @@ description: "Embedded Systems Architecture: A Comprehensive Design Guide"
 slug: embedded-systems-architecture
 date: 2025-12-01
 categories:
-  - Reading
+  - Development
 tags:
+  - Development
+  - Embedded
   - Reading
 ---
+
 ## Overview
 
 **Section I: Introduction to Embedded Systems**
@@ -104,7 +107,7 @@ tags:
 	An embedded system is an applied computer system, as distinguished from other types of computer systems such as personal computers (PCs) or supercomputers.
 	
 	The embedded system model
-		![[embedded-system-model.png]]
+		![embedded-system-model.png](embedded-system-model.png)
 
 - **Why**
 	An embedded systems architecture can be used to resolve many challenges early in a project.
@@ -126,7 +129,7 @@ tags:
 		- Input Device(s) - input slave processors and relative electrical components
 		- Output Device(s) - output slave processors and relative electrical components
 		- Data Pathway(s)/Bus(es)  interconnects the other components, providing a "high-way" for data to ravel on from one component to anther, including any wires, bus bridges, and/or bus controllers
-		![[embedded-system-board.png]]
+		![embedded-system-board.png](embedded-system-board.png)
 	- Basic materials
 		- Conductors (导体)
 		- Insulators (绝缘体)
